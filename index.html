@@ -1,17 +1,119 @@
-#!/usr/local/bin/python
+<html>
+<head>
+<STYLE TYPE="text/css">
+    BODY
+        {
+        color:#666666;
+        font-family:verdana, ariel;
+        line-height:1.7em;
+		margin: 0;
+		padding: 0;
+        }
+    H2
+        {
+        color:469103;
+        font-size:3.18em;
+        font-family:monospace
+        }
+    H3
+        {
+        color:469103;
+        font-size:2.45em;
+        font-family:monospace
+        }
+    H4
+        {
+        color:000013;
+        font-size:1.8em;
+        font-family:monospace
+		}
+    a:link {
+			text-decoration: none;
+            color:000013;
+    }
 
-from random import choice
-import cgitb; cgitb.enable()
-from includes import get_header, get_footer
-from os import stat
+    a:visited {
+			text-decoration: none;
+            color:000013;
+    }
+
+    a:hover {
+			text-decoration: none;
+            color:#FFFFFF;
+            background-color:000013;
+    }
+
+	p, li {
+		margin:0px 30px 10px 30px;
+		font-size:0.75em;
+		}
 
 
-print "Content-Type: text/html"     # HTML is following
-print
+table.header {
+	border-width: 0px 0px 0px 0px;
+	border-spacing: 0px;
+	border-style: none none none none;
+	border-color: white white white white;
+	border-collapse: separate;
+	background-color: white;
+}
+table.header th {
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: none none none none;
+	border-color: white white white white;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+table.header td {
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: none none none none;
+	border-color: white white white white;
+	background-color: 000013;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
 
-print get_header()
 
-print """	
+table.footer {
+	border-width: 0px 0px 0px 0px;
+	border-spacing: 0px;
+	border-style: none none none none;
+	border-color: white white white white;
+	border-collapse: separate;
+	background-color: white;
+}
+table.footer th {
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: none none none none;
+	border-color: white white white white;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+table.footer td {
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: none none none none;
+	border-color: white white white white;
+	background-color: 000013;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+</STYLE>
+
+<title>JG Caporaso</title></head>
+
+<body>
+<center>
+	<table class=header width=100%>
+		<tr>
+			<td width=100% height=20px align=right valign=middle>
+				<font color=white size=+3>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+			</td>
+		</tr>
+	</table>
+
 <table width=100% height=100%>
     <tr height=100%>
      <td width=45% align=left valign=top>
@@ -55,21 +157,7 @@ print """
 				    <li>PyNAST: Python Nearest Alignment Space Termination tool <br> (<a href="http://pynast.sourceforge.net">web</a> | <a href="http://pynast.wordpress.com">blog</a> | <a href="http://bioinformatics.oxfordjournals.org/content/26/2/266.long">paper</a>)<p>
 				    <li>MutationFinder <br> (<a href="http://mutationfinder.sourceforge.net">web</a> | <a href="http://bioinformatics.oxfordjournals.org/content/23/14/1862.long">paper</a>)<p>
 				</ul>
-                </p>
-
-
-
-				<!--<p><a href="http://cl.ly/1Q3n1o371s2h0W2l0p34">Doctoral thesis</a> (UC Denver Outstanding Dissertation Award Finalist, 2009)
-
-				<p>Shared education and presentation materials (under <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">CC attribution-only license</a>):
-				<ul>
-				    <li><a href="presentations/caporaso_pycogent_lecture.zip">
-				     Materials from my example-based lecture introducing PyCogent</a>
-				    <li><a href="intermolecular_coevolution/ppi_analysis_readme.html">
-				     Code and instructions for performing intermolecular coevolutionary analyses with PyCogent</a>
-				</ul>
-				</p>
-				<p>&nbsp;</p>-->
+      </p>
 
      </td>
      <td width=55% align=right valign=top>
@@ -78,15 +166,39 @@ print """
 				<img border=0 src="http://farm4.static.flickr.com/3210/cols/72157600888721707_9d6f348b20_l.jpg"><br>
 				Pictures from hikes on Colorado 14ers.</a></p>
                 <p><a href="http://picasaweb.google.com/gregcaporaso/MiscellaneousPhotos">Photo highlight reel</a> and <a href="http://www.flickr.com/photos/caporaso/">my Flickr account.</a></p>
-				
-				
-				
-				
-				
-				<!--<p>I maintain an <a href="http://www.google.com/reader/shared/user/14313552819956280975/label/Computational%20Biology">RSS aggregation of Computational Biology and Bioinformatics journal feeds</a> (among some <a href="./feeds.py">others</a>). You can <a href="http://www.google.com/reader/shared/user/14313552819956280975/label/Computational%20Biology">view the public page</a>, or <a href="http://www.google.com/reader/public/atom/user%2F14313552819956280975%2Flabel%2FComputational%20Biology">subscribe to the RSS feed.</a> Please <a href="mailto:gregcaporaso@gmail.com?subject=RSS recommendation for www.caporaso.us">let me know</a> of any recommedations for additional titles to include. You can view and subscribe to <a href="./feeds.py">my other feeds here.</a><br>(New to RSS? Here's <a href="http://en.wikipedia.org/wiki/RSS">some information</a>, or just jump in with <a href="http://reader.google.com">Google Reader</a>.)</p>-->
         </td>
        </tr>
 </table>
-"""
 
-print get_footer()
+<table width=100%>
+		<tr>
+			<td width=100% height=30px align=right valign=middle>
+			<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/us/88x31.png" /></a><br><font size=-2>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a></font>.
+            </td>
+		</tr>
+	<table class=footer width=100%>
+		<tr>
+			<td width=85% height=30px align=left valign=middle>
+				<font color=white size=-2><i>&nbsp;</i></font>
+			</td>
+			<td width=5%>&nbsp;</td>
+			<td width=10% height=30px align=right valign=middle>
+				<font color=white size=-2>
+				J. Gregory Caporaso&nbsp;&nbsp;&nbsp;<br>gregcaporaso@gmail.com&nbsp;&nbsp;&nbsp;</font>
+			</td>
+		</tr>
+	</table>
+</center>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6636235-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
+
+<!-- Page by Greg Caporaso gregcaporaso@gmail.com -->
