@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lecture 6: Molecular evolution &mdash; bioinformatics@nau</title>
+    
+    <link rel="stylesheet" href="../../../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/theme_extras.js"></script>
+    <link rel="top" title="bioinformatics@nau" href="../../../index.html" />
+    <link rel="up" title="Lecture outlines" href="index.html" />
+    <link rel="next" title="Lecture 7: Molecular evolution and introduction to sequence searching and phylogenetic inference" href="lecture7.html" />
+    <link rel="prev" title="Lecture 5: DNA to Protein; part 2: mRNA to Protein" href="lecture5.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../../../index.html">
+          <span>bioinformatics@nau</span></a></h1>
+        <h2 class="heading"><span>Lecture 6: Molecular evolution</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="lecture5.html">Lecture 5: DNA to Protein; part 2: mRNA to Protein</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="lecture7.html">Lecture 7: Molecular evolution and introduction to sequence searching and phylogenetic inference</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="lecture-6-molecular-evolution">
+<h1>Lecture 6: Molecular evolution<a class="headerlink" href="#lecture-6-molecular-evolution" title="Permalink to this headline">¶</a></h1>
+<p>Three features of evolutionary processes: descent, variation, and selection.</p>
+<p>Basic principals of sequence evolution: new genes generated from old genes - <a class="reference external" href="http://www.nature.com/scitable/topicpage/dna-replication-and-causes-of-mutation-409">point mutations, insertion/deletions</a>.</p>
+<p>Duplications, crossing over, horizontal gene transfer.</p>
+<p>Not all variation is adaptive (suggested reading: <a class="reference external" href="http://condor.wesleyan.edu/courses/2004s/ees227/01/spandrels.html">The Spandrels of San Marco and the Panglossian Paradigm: A Critique of the Adaptationist Programme, by Stephen Jay Gould and Richard C. Lewontin</a>)</p>
+<div class="section" id="coding-loops-and-lists">
+<h2>Coding: loops and lists<a class="headerlink" href="#coding-loops-and-lists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="importing-functions-from-other-files">
+<h3>Importing functions from other files<a class="headerlink" href="#importing-functions-from-other-files" title="Permalink to this headline">¶</a></h3>
+<p>A useful topic to briefly cover here is how to import functions, objects, etc. from other python files. To do that you can use the <tt class="docutils literal"><span class="pre">import</span></tt> statement. Today we&#8217;re going to look at this to import from the <tt class="docutils literal"><span class="pre">random</span></tt> module and the <tt class="docutils literal"><span class="pre">__future__</span></tt> module, and model the idea of genetic drift.</p>
+<p>Start a python terminal and enter the following line:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+</pre></div>
+</div>
+<p>This performs floating point division when starting with integers, so <tt class="docutils literal"><span class="pre">1/2</span></tt> will equal <tt class="docutils literal"><span class="pre">0.5</span></tt> (a floating point value) rather than <tt class="docutils literal"><span class="pre">0</span></tt> (an integer value).</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It&#8217;s a good idea to <cite>always</cite> add <tt class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">division</span></tt> to the top of your python scripts. Python 3 will include <cite>true division</cite>, but until then not adding this import statement can lead to bugs. Note that in python&#8217;s default division <em>values are truncated, not rounded</em> so, for example, <tt class="docutils literal"><span class="pre">11/4</span> <span class="pre">==</span> <span class="pre">2</span></tt>, not <tt class="docutils literal"><span class="pre">3</span></tt> as you would expect if python were rounding.</p>
+</div>
+</div>
+<div class="section" id="genetic-drift-programming-example">
+<h3>Genetic drift programming example<a class="headerlink" href="#genetic-drift-programming-example" title="Permalink to this headline">¶</a></h3>
+<p>This example illustrates the concept of genetic drift in a population of genotypes. Imagine we start with four genotypes, <tt class="docutils literal"><span class="pre">A</span></tt>, <tt class="docutils literal"><span class="pre">B</span></tt>, <tt class="docutils literal"><span class="pre">C</span></tt>, and <tt class="docutils literal"><span class="pre">D</span></tt> and 10,000 individuals. First, let&#8217;s define a starting population with the following genotype frequencies:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">genotype_frequencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5000</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2500</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1250</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1250</span>
+</pre></div>
+</div>
+<p>This syntax may be new to you. Break this apart to individual addends to figure out what the full statement is doing.</p>
+<p>Next, let&#8217;s define a function that will conveniently allow us to summarize this population:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">summarize_composition</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="n">population_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&#39;A: </span><span class="si">%0.4f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">population</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">population_size</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&#39;B: </span><span class="si">%0.4f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">population</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">population_size</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&#39;C: </span><span class="si">%0.4f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">population</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">population_size</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&#39;D: </span><span class="si">%0.4f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">population</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;D&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">population_size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now run this function on the population that was just created:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">summarize_composition</span><span class="p">(</span><span class="n">genotype_frequencies</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should get the following result &#8211; if not, you did something wrong so go back and figure out what it was.</p>
+<div class="highlight-python"><pre>A: 0.5000
+B: 0.2500
+C: 0.1250
+D: 0.1250</pre>
+</div>
+<p>Next we&#8217;re going to import the <tt class="docutils literal"><span class="pre">sample</span></tt> function from the <tt class="docutils literal"><span class="pre">random</span></tt> module. Given a list (<tt class="docutils literal"><span class="pre">population</span></tt>) and a number of elements (<tt class="docutils literal"><span class="pre">k</span></tt>) to select, <tt class="docutils literal"><span class="pre">sample</span></tt> randomly samples (without replacement) <tt class="docutils literal"><span class="pre">k</span></tt> elements from the list and returns those as a new list. So, if we sample the full population and summarize the genotype composition, we should get the same result &#8211; let&#8217;s test it out:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="n">new_genotype_frequencies</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">genotype_frequencies</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">summarize_composition</span><span class="p">(</span><span class="n">new_genotype_frequencies</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, let&#8217;s simulate genetic drift. Imagine we have a population of organisms with the genotype frequencies represented in our <tt class="docutils literal"><span class="pre">genotype_frequencies</span></tt> list. Regardless of which of these genotypes confers the most selective advantage a random removal of a large component from the population has the ability to affect the resulting genotypic composition.</p>
+<p>Simulate an event that randomly kills off 10% of the total population, and look at the resulting genotype composition:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_genotype_frequencies</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">genotype_frequencies</span><span class="p">,</span><span class="mi">9000</span><span class="p">)</span>
+<span class="n">summarize_composition</span><span class="p">(</span><span class="n">new_genotype_frequencies</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Do this a few times. You should notice that the frequencies don&#8217;t change a lot. What happens if instead of this relatively small dying off, there is a near-extinction event. Simulate an event that randomly kills off 99.9% of the population. What happens now? Run this simulation several times and explain the results of this experiment.</p>
+</div>
+<div class="section" id="working-with-loops-the-for-loop">
+<h3>Working with loops: the for loop<a class="headerlink" href="#working-with-loops-the-for-loop" title="Permalink to this headline">¶</a></h3>
+<p>In the next set of assignments you&#8217;ll be introduced to loops. These allow you to perform an operation many times using a slightly different input each time. To continue our sequencing processing script, let&#8217;s add a few new features that make use of a <tt class="docutils literal"><span class="pre">for</span></tt> loop.  We&#8217;ll add a feature to our sequence processing script that allows a user to pass several sequences on the command line:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+<span class="n">script_name</span><span class="p">,</span> <span class="n">sequences</span> <span class="o">=</span> <span class="n">argv</span>
+
+<span class="n">sequences</span> <span class="o">=</span> <span class="n">sequences</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">reverse_complement</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sequence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">,</span><span class="s">&#39;t&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="s">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;G&#39;</span><span class="p">,</span><span class="s">&#39;c&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">,</span><span class="s">&#39;g&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c"># iterate over the sequences and print the reverse complement</span>
+<span class="c"># of each to the command line</span>
+<span class="k">for</span> <span class="n">sequence</span> <span class="ow">in</span> <span class="n">sequences</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="lecture5.html">Lecture 5: DNA to Protein; part 2: mRNA to Protein</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="lecture7.html">Lecture 7: Molecular evolution and introduction to sequence searching and phylogenetic inference</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, J Gregory Caporaso.
+      Last updated on Aug 27, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

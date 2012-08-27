@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lecture 13: Introduction to PyCogent: Building a tree of life &mdash; bioinformatics@nau</title>
+    
+    <link rel="stylesheet" href="../../../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/theme_extras.js"></script>
+    <link rel="top" title="bioinformatics@nau" href="../../../index.html" />
+    <link rel="up" title="Lecture outlines" href="index.html" />
+    <link rel="next" title="Lecture 15: Programming review session" href="lecture15.html" />
+    <link rel="prev" title="Lecture 12: Canceled" href="lecture12.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../../../index.html">
+          <span>bioinformatics@nau</span></a></h1>
+        <h2 class="heading"><span>Lecture 13: Introduction to PyCogent: Building a tree of life</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="lecture12.html">Lecture 12: Canceled</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="lecture15.html">Lecture 15: Programming review session</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="lecture-13-introduction-to-pycogent-building-a-tree-of-life">
+<h1>Lecture 13: Introduction to PyCogent: Building a tree of life<a class="headerlink" href="#lecture-13-introduction-to-pycogent-building-a-tree-of-life" title="Permalink to this headline">¶</a></h1>
+<p>Assignment of groups for application presentations</p>
+<p>Organization of study sessions: organizers will earn participation points</p>
+<p>Discussion of homework assignment</p>
+<p>Amazon Web Services: Will be accessible for projects in the second half of this semester</p>
+<dl class="docutils">
+<dt>Python modules</dt>
+<dd><ul class="first last simple">
+<li>matplotlib: graphing functionality</li>
+<li>PyCogent: Bioinformatics toolkit</li>
+</ul>
+</dd>
+<dt>Steps in constructing a phylogeny based on molecular sequence data</dt>
+<dd><ol class="first last arabic simple">
+<li>Select a sequence of interest: why might you choose a particular sequence?</li>
+<li>Identify homologs: sequencing or database searching (we&#8217;ll search for sequences in NCBI)</li>
+<li>Align sequences: performing a multiple sequence alignment (we&#8217;ll use muscle)</li>
+<li>Calculate phylogeny: phylogeny reconstruction methods (we&#8217;ll use FastTree)</li>
+</ol>
+</dd>
+</dl>
+<div class="section" id="coding-example">
+<h2>Coding example<a class="headerlink" href="#coding-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="matplotlib">
+<h3>matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h3>
+<p>matplotlib is a graphing module that is not included in the Python Standard Library. To use matplotlib you&#8217;ll need to install it.</p>
+<p>This module provides a good illustration of the functionality that is available to you via python which you don&#8217;t have to implement yourself. This code here allows you to visualize a set of randomly generated scatter plots - look through the plots that are generated and think about how many you would consider the x and the y values to appear correlated. I find it alarming how many of these randomly generated plots look correlated. Keep this in mind as you read papers and analyze data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">scatter</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+
+<span class="k">def</span> <span class="nf">get_n_random_values</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">range_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">range_max</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="n">range_min</span><span class="p">,</span><span class="n">range_max</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">figure</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">scatter</span><span class="p">(</span><span class="n">get_n_random_values</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+            <span class="n">get_n_random_values</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pycogent">
+<h3>PyCogent<a class="headerlink" href="#pycogent" title="Permalink to this headline">¶</a></h3>
+<p>The Python Comparative GENomics Toolkit (PyCogent) is a python module that supports many bioinformatics applications, and is the basis for many other bioinformatics software packages. We&#8217;ll work through an example that illustrates some powerful features of PyCogent, and will spend more time on specific components later in the semester and in Bio/CS 399 next semester.</p>
+<p>You can find my PyCogent tree of life demo <a class="reference external" href="http://dl.dropbox.com/u/2868868/pycogent_160dev_docs/cookbook/building_a_tree_of_life.html">here</a>.</p>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="lecture12.html">Lecture 12: Canceled</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="lecture15.html">Lecture 15: Programming review session</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, J Gregory Caporaso.
+      Last updated on Aug 27, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

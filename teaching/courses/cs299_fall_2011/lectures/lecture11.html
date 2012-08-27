@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lecture 11: Alignments and phylogenetic trees &mdash; bioinformatics@nau</title>
+    
+    <link rel="stylesheet" href="../../../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/theme_extras.js"></script>
+    <link rel="top" title="bioinformatics@nau" href="../../../index.html" />
+    <link rel="up" title="Lecture outlines" href="index.html" />
+    <link rel="next" title="Lecture 12: Canceled" href="lecture12.html" />
+    <link rel="prev" title="Lecture 10: Sequence alignment algorithms (continued)" href="lecture10.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../../../index.html">
+          <span>bioinformatics@nau</span></a></h1>
+        <h2 class="heading"><span>Lecture 11: Alignments and phylogenetic trees</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="lecture10.html">Lecture 10: Sequence alignment algorithms (continued)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="lecture12.html">Lecture 12: Canceled</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="lecture-11-alignments-and-phylogenetic-trees">
+<h1>Lecture 11: Alignments and phylogenetic trees<a class="headerlink" href="#lecture-11-alignments-and-phylogenetic-trees" title="Permalink to this headline">¶</a></h1>
+<p>Review Needleman-Wunsch python implementation (below).</p>
+<p>Discuss homework assignment for Thursday Oct 13th.</p>
+<p>Introduce phylogenetic trees and the UPGMA algorithm.</p>
+<div class="section" id="python-coding-examples">
+<h2>Python coding examples<a class="headerlink" href="#python-coding-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="needleman-wunsch-implementation-in-python">
+<h3>Needleman-Wunsch implementation in python<a class="headerlink" href="#needleman-wunsch-implementation-in-python" title="Permalink to this headline">¶</a></h3>
+<p>To run this Needleman-Wunsch implementation, save the copy and paste the code to a new py file. You&#8217;ll this to <tt class="xref download docutils literal"><span class="pre">download</span> <span class="pre">this</span> <span class="pre">file</span></tt> to the same directory to support the importing of the blosum50 matrix.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+<span class="kn">from</span> <span class="nn">substitution_matrices</span> <span class="kn">import</span> <span class="n">blosum50</span>
+
+<span class="c">##############</span>
+<span class="c"># Start function and variable definitions</span>
+<span class="c">##############</span>
+
+<span class="k">def</span> <span class="nf">generate_score_matrix</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">):</span>
+    <span class="c"># Initialize a matrix to use for storing the scores</span>
+    <span class="n">score_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c"># Iterate over the amino acids in sequence two (which will correspond</span>
+    <span class="c"># to the vertical sequence in the matrix)</span>
+    <span class="k">for</span> <span class="n">aa2</span> <span class="ow">in</span> <span class="n">seq2</span><span class="p">:</span>
+        <span class="c"># Initialize the current row of the matrix</span>
+        <span class="n">current_row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c"># Iterate over the amino acids in sequence one (which will</span>
+        <span class="c"># correspond to the horizontal sequence in the matrix)</span>
+        <span class="k">for</span> <span class="n">aa1</span> <span class="ow">in</span> <span class="n">seq1</span><span class="p">:</span>
+            <span class="c"># score as 1 if the bases are equal and 0 if they&#39;re not</span>
+            <span class="n">current_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">blosum50</span><span class="p">[</span><span class="n">aa1</span><span class="p">][</span><span class="n">aa2</span><span class="p">])</span>
+        <span class="c"># append the current row to the matrix</span>
+        <span class="n">score_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">score_matrix</span>
+
+<span class="k">def</span> <span class="nf">generate_nw_and_traceback_matrices</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">gap_penalty</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">):</span>
+
+    <span class="c"># Initialize a matrix to use for scoring the alignment and for tracing</span>
+    <span class="c"># back the best alignment</span>
+    <span class="n">nw_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="n">gap_penalty</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)]]</span>
+    <span class="n">traceback_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">None</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;-&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">))]]</span>
+    <span class="c"># Iterate over the amino acids in sequence two (which will correspond</span>
+    <span class="c"># to the vertical sequence in the matrix)</span>
+    <span class="c"># Note that i corresponds to column numbers, as in the &#39;Biological Sequence</span>
+    <span class="c"># Analysis&#39; example from class</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">aa2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">seq2</span><span class="p">):</span>
+        <span class="c"># Initialize the current row of the matrix</span>
+        <span class="n">current_row</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="o">-</span><span class="n">gap_penalty</span><span class="p">]</span>
+        <span class="n">current_traceback_matrix_row</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;|&#39;</span><span class="p">]</span>
+        <span class="c"># Iterate over the amino acids in sequence one (which will</span>
+        <span class="c"># correspond to the horizontal sequence in the matrix)</span>
+        <span class="c"># Note that j corresponds to row numbers, as in the &#39;Biological Sequence</span>
+        <span class="c"># Analysis&#39; example from class</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">aa1</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">seq1</span><span class="p">):</span>
+            <span class="n">substitution_score</span> <span class="o">=</span> <span class="n">substitution_matrix</span><span class="p">[</span><span class="n">aa1</span><span class="p">][</span><span class="n">aa2</span><span class="p">]</span>
+            <span class="n">diag_score</span> <span class="o">=</span> <span class="p">(</span><span class="n">nw_matrix</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">substitution_score</span><span class="p">,</span><span class="s">&#39;</span><span class="se">\\</span><span class="s">&#39;</span><span class="p">)</span>
+            <span class="n">up_score</span> <span class="o">=</span> <span class="p">(</span><span class="n">nw_matrix</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">gap_penalty</span><span class="p">,</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
+            <span class="n">left_score</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">gap_penalty</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
+            <span class="n">best_score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">diag_score</span><span class="p">,</span><span class="n">up_score</span><span class="p">,</span><span class="n">left_score</span><span class="p">)</span>
+            <span class="n">current_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_score</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">current_traceback_matrix_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_score</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="c"># append the current row to the matrix</span>
+        <span class="n">nw_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_row</span><span class="p">)</span>
+        <span class="n">traceback_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_traceback_matrix_row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nw_matrix</span><span class="p">,</span> <span class="n">traceback_matrix</span>
+
+<span class="k">def</span> <span class="nf">nw_traceback</span><span class="p">(</span><span class="n">traceback_matrix</span><span class="p">,</span><span class="n">nw_matrix</span><span class="p">,</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">gap_character</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">):</span>
+
+    <span class="n">aligned_seq1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">aligned_seq2</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">current_row</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">traceback_matrix</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">current_col</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">traceback_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">best_score</span> <span class="o">=</span> <span class="n">nw_matrix</span><span class="p">[</span><span class="n">current_row</span><span class="p">][</span><span class="n">current_col</span><span class="p">]</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">current_value</span> <span class="o">=</span> <span class="n">traceback_matrix</span><span class="p">[</span><span class="n">current_row</span><span class="p">][</span><span class="n">current_col</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">current_value</span> <span class="o">==</span> <span class="s">&#39;</span><span class="se">\\</span><span class="s">&#39;</span><span class="p">:</span>
+            <span class="n">aligned_seq1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq1</span><span class="p">[</span><span class="n">current_col</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">aligned_seq2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq2</span><span class="p">[</span><span class="n">current_row</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">current_row</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">current_col</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">current_value</span> <span class="o">==</span> <span class="s">&#39;|&#39;</span><span class="p">:</span>
+            <span class="n">aligned_seq1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
+            <span class="n">aligned_seq2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq2</span><span class="p">[</span><span class="n">current_row</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">current_row</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">current_value</span> <span class="o">==</span> <span class="s">&#39;-&#39;</span><span class="p">:</span>
+            <span class="n">aligned_seq1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq1</span><span class="p">[</span><span class="n">current_col</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">aligned_seq2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
+            <span class="n">current_col</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">current_value</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="s">&quot;Invalid value in traceback matrix: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">current_value</span>
+
+    <span class="k">return</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aligned_seq1</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aligned_seq2</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">best_score</span>
+
+<span class="k">def</span> <span class="nf">format_score_matrix</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">score_matrix</span><span class="p">,</span><span class="n">title</span><span class="p">):</span>
+    <span class="c"># define a format string that will be used to format each line -</span>
+    <span class="c"># since seq1 is the &#39;horizontal&#39; sequence in our matrix we&#39;ll</span>
+    <span class="c"># have len(seq1) + 1 entries on each line to print the scores and</span>
+    <span class="c"># seq2 base associated with each row</span>
+    <span class="n">line_format</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%6s</span><span class="s">&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">title</span>
+
+    <span class="c"># print seq1 (start the line with an empty string)</span>
+    <span class="k">print</span> <span class="n">line_format</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="s">&#39; &#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">seq1</span><span class="p">)))</span>
+
+    <span class="c"># iterate over the rows and print each (starting with the</span>
+    <span class="c"># corresponding base in sequence2)</span>
+    <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">score_matrix</span><span class="p">,</span><span class="n">seq2</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">line_format</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">base</span><span class="p">]</span> <span class="o">+</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">row</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">format_dynamic_programming_matrix</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">matrix</span><span class="p">,</span><span class="n">title</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">title</span>
+
+    <span class="n">line_format</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%6s</span><span class="s">&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c"># print seq1 (start the line with two empty strings)</span>
+    <span class="k">print</span> <span class="n">line_format</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="s">&#39; &#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">seq1</span><span class="p">)))</span>
+
+    <span class="c"># iterate over the rows and print each (starting with the</span>
+    <span class="c"># corresponding base in sequence2)</span>
+    <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="n">seq2</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">line_format</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">base</span><span class="p">]</span> <span class="o">+</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">row</span><span class="p">))</span>
+
+
+<span class="c">##############</span>
+<span class="c"># End function and variable definitions</span>
+<span class="c">##############</span>
+
+
+<span class="c">##############</span>
+<span class="c"># Start main execution block</span>
+<span class="c">##############</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">seq1</span> <span class="o">=</span> <span class="s">&quot;HEAGAWGHEE&quot;</span>
+    <span class="n">seq2</span> <span class="o">=</span> <span class="s">&quot;PAWHEAE&quot;</span>
+
+    <span class="n">score_matrix</span> <span class="o">=</span> <span class="n">generate_score_matrix</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">blosum50</span><span class="p">)</span>
+
+    <span class="n">format_score_matrix</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span>
+                        <span class="n">seq2</span><span class="p">,</span>
+                        <span class="n">score_matrix</span><span class="p">,</span>
+                        <span class="n">title</span><span class="o">=</span><span class="s">&quot;Score matrix (based on BLOSUM50)&quot;</span><span class="p">)</span>
+
+
+    <span class="n">nw_matrix</span><span class="p">,</span> <span class="n">traceback_matrix</span> <span class="o">=</span> <span class="n">generate_nw_and_traceback_matrices</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span>
+                                                                     <span class="n">seq2</span><span class="p">,</span>
+                                                                     <span class="mi">8</span><span class="p">,</span>
+                                                                     <span class="n">blosum50</span><span class="p">)</span>
+
+    <span class="n">aligned_seq1</span><span class="p">,</span> <span class="n">aligned_seq2</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">nw_traceback</span><span class="p">(</span><span class="n">traceback_matrix</span><span class="p">,</span><span class="n">nw_matrix</span><span class="p">,</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">)</span>
+
+    <span class="n">format_dynamic_programming_matrix</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span>
+                                      <span class="n">seq2</span><span class="p">,</span>
+                                      <span class="n">nw_matrix</span><span class="p">,</span>
+                                      <span class="n">title</span><span class="o">=</span><span class="s">&quot;Global dynamic programming matrix&quot;</span><span class="p">)</span>
+
+    <span class="n">format_dynamic_programming_matrix</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span>
+                                      <span class="n">seq2</span><span class="p">,</span>
+                                      <span class="n">traceback_matrix</span><span class="p">,</span>
+                                      <span class="n">title</span><span class="o">=</span><span class="s">&quot;Traceback matrix&quot;</span><span class="p">)</span>
+
+
+    <span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Alignment:&quot;</span>
+
+    <span class="k">print</span> <span class="n">aligned_seq1</span>
+    <span class="k">print</span> <span class="n">aligned_seq2</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">Alignment score:&#39;</span>
+    <span class="k">print</span> <span class="n">score</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+<span class="c">##############</span>
+<span class="c"># End main execution block</span>
+<span class="c">##############</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-computing-a-distance-matrix-in-python-for-use-in-upgma">
+<h3>Example of computing a distance matrix in python for use in UPGMA<a class="headerlink" href="#example-of-computing-a-distance-matrix-in-python-for-use-in-upgma" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">count_differences</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">):</span>
+    <span class="n">difference_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">base1</span><span class="p">,</span> <span class="n">base2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">base1</span> <span class="o">!=</span> <span class="n">base2</span><span class="p">:</span>
+            <span class="n">difference_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">difference_count</span>
+
+<span class="k">def</span> <span class="nf">format_dm</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span><span class="n">title</span><span class="p">):</span>
+    <span class="n">line_format</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%6s</span><span class="s">&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dm</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">title</span>
+
+    <span class="c"># print seq1 (start the line with an empty string)</span>
+    <span class="k">print</span> <span class="n">line_format</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="s">&#39; &#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;s</span><span class="si">%d</span><span class="s">&#39;</span><span class="o">%</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dm</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+
+    <span class="c"># iterate over the rows and print each (starting with the</span>
+    <span class="c"># corresponding base in sequence2)</span>
+    <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">row_number</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dm</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
+        <span class="k">print</span> <span class="n">line_format</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">([</span><span class="s">&#39;s</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">row_number</span><span class="p">]</span> <span class="o">+</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">row</span><span class="p">))</span>
+
+<span class="n">sequences</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;ACCGTGAAGCCAATAC&quot;</span><span class="p">,</span>
+             <span class="s">&quot;AGCGTGCAACCATTAC&quot;</span><span class="p">,</span>
+             <span class="s">&quot;AGCGTGCAGCCAATAC&quot;</span><span class="p">,</span>
+             <span class="s">&quot;AGGGTGCCGCTAATAC&quot;</span><span class="p">,</span>
+             <span class="s">&quot;AGGGTGCCACTAATAC&quot;</span><span class="p">]</span>
+
+<span class="n">dm</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">seq1</span> <span class="ow">in</span> <span class="n">sequences</span><span class="p">:</span>
+    <span class="n">current_row</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">seq2</span> <span class="ow">in</span> <span class="n">sequences</span><span class="p">:</span>
+        <span class="n">current_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count_differences</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">))</span>
+    <span class="n">dm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_row</span><span class="p">)</span>
+
+<span class="n">format_dm</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span><span class="s">&quot;Distance matrix&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="functions-as-values-in-dictionaries">
+<h2>Functions as values in dictionaries<a class="headerlink" href="#functions-as-values-in-dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>This is covered in example 40, so need to cover now...</p>
+<p>Chemistry demo: create a function (are we up to functions at this point in LPTHW?) to compute molecular weight from chemical formulas. Would also involve some complex string parsing.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="lecture10.html">Lecture 10: Sequence alignment algorithms (continued)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="lecture12.html">Lecture 12: Canceled</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, J Gregory Caporaso.
+      Last updated on Aug 27, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
