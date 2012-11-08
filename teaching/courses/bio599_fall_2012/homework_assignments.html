@@ -69,9 +69,30 @@
 <div class="section" id="programming-assignment-2-15-nov-2012">
 <h2>Programming Assignment 2 (15 Nov 2012)<a class="headerlink" href="#programming-assignment-2-15-nov-2012" title="Permalink to this headline">¶</a></h2>
 <p>Write a program that makes use of a <tt class="docutils literal"><span class="pre">for</span></tt> loop and a dictionary to translate an RNA sequence to a protein for all four orientations of the input sequence (forward, reverse, forward complement, reverse complement, where forward refers to the sequence that was passed in). This program should query a user for an input RNA sequence and print the translated protein sequences to the screen. If a stop codon is encountered in the RNA sequence, an <tt class="docutils literal"><span class="pre">*</span></tt> should be inserted in the translated sequence, and translation should continue.</p>
+<p>Assume that you will only receive IUPAC RNA bases (either upper or lower case) as input. In other words, you don&#8217;t need to handle non-RNA characters in the input sequence. You can also assume that the length of an input sequence will be a multiple of three, so you only need to handle full-length codon sequences.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Homework id: <tt class="docutils literal"><span class="pre">translate</span></tt>; Extension: <tt class="docutils literal"><span class="pre">py</span></tt>; For this assignment, the file I turn in would be named <tt class="docutils literal"><span class="pre">jgc53_translate.py</span></tt>.</p>
+</div>
+<p>To get every third base, you can build a for loop that looks like the following. Use a variation on this to identify each codon:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;ACCTTTAGGACCCGG&quot;</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">s</span><span class="p">[</span><span class="n">e</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Example input 1:</p>
+<div class="highlight-python"><pre>Enter a DNA sequence:
+ACCGGGTTACCC</pre>
+</div>
+<p>Example output 1:</p>
+<div class="highlight-python"><pre>Forward orientation:
+TGLP
+Reverse orientation:
+PIGP
+Forward complement orientation:
+WPNG
+Reverse complement orientation:
+G*PG</pre>
 </div>
 </div>
 <div class="section" id="programming-assignment-1-8-nov-2012">
