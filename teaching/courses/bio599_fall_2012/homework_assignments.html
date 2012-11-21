@@ -75,11 +75,11 @@ cp jgc53_translate.py /mnt/assignments/translate/</pre>
 <p>To move files in and out of the instance, I recommend using <a class="reference external" href="http://www.cyberduck.ch">Cyberduck</a>. You can find <a class="reference external" href="http://qiime.org/tutorials/working_with_aws.html#working-with-cyberduck">instructions for connecting to AWS with Cyberduck here</a>. Instead of the public DNS entry, you&#8217;ll use the IP address referenced above. You can also experiment with <a class="reference external" href="http://qiime.org/tutorials/working_with_aws.html#working-with-command-line-tools">command line tools to move data in and out of the cluster</a>.</p>
 </div>
 <div class="section" id="final-project-13-dec-2012-9-30am">
-<h2>Final project (13 Dec 2012 9:30am)<a class="headerlink" href="#final-project-13-dec-2012-9-30am" title="Permalink to this headline">¶</a></h2>
-<p>You will have two options for the final project: one performing a QIIME meta-analysis, and one writing a python program. You will turn in only one of these assignments.</p>
+<h2>Final Project (13 Dec 2012 9:30am)<a class="headerlink" href="#final-project-13-dec-2012-9-30am" title="Permalink to this headline">¶</a></h2>
+<p>You will have two options for the final project: one where you perform a QIIME Database meta-analysis, and one where you Build a tree of life via a python program. You will turn in only one of these assignments.</p>
 </div>
-<div class="section" id="final-project-qiime-database-meta-analysis">
-<h2>Final project: QIIME Database meta-analysis<a class="headerlink" href="#final-project-qiime-database-meta-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="final-project-option-1-qiime-database-meta-analysis">
+<h2>Final Project Option 1: QIIME Database meta-analysis<a class="headerlink" href="#final-project-option-1-qiime-database-meta-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Start Early! The QIIME DB uses a shared server for this analysis, and you never know how busy it will be.</p>
@@ -115,8 +115,8 @@ cp jgc53_translate.py /mnt/assignments/translate/</pre>
 <p class="last">UniFrac clustering analysis: modifying the mapping file (e.g., in Excel) to create a single metadata column that is informative across all samples will help here. You would need to run <tt class="docutils literal"><span class="pre">make_3d_plots.py</span></tt> with your new mapping file to generate a new PCoA plot. I created a new column in my mapping file called <tt class="docutils literal"><span class="pre">Study_detail</span></tt> that combined the <tt class="docutils literal"><span class="pre">Surface</span></tt> and <tt class="docutils literal"><span class="pre">ENV_FEATURE</span></tt> columns.</p>
 </div>
 </div>
-<div class="section" id="final-project-building-a-tree-of-life-programming-assignment">
-<h2>Final project: Building a tree of life (programming assignment)<a class="headerlink" href="#final-project-building-a-tree-of-life-programming-assignment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="final-project-option-2-building-a-tree-of-life-programming-assignment">
+<h2>Final Project Option 2: Building a tree of life (programming assignment)<a class="headerlink" href="#final-project-option-2-building-a-tree-of-life-programming-assignment" title="Permalink to this headline">¶</a></h2>
 <p>In this assignment you will make use of the PyCogent software package to automate the process of constructing a phylogenetic tree from a set of genes. This will including querying NCBI to obtain sequences, performing a multiple sequence alignment, building a phylogenetic tree, writing a newick string containing that tree to file, and writing a visualization of that tree to a PDF file.</p>
 <p>Your script must define a function called <tt class="docutils literal"><span class="pre">obtain_sequences_and_build_tree</span></tt> that takes:
 1. a list of queries (as strings) to be run against NCBI;
