@@ -55,6 +55,118 @@
 <p>Your homework must always be turned in with a standardized name. That name should be <tt class="docutils literal"><span class="pre">&lt;nau_id&gt;_&lt;homework_id&gt;.&lt;extension&gt;</span></tt>, where <tt class="docutils literal"><span class="pre">&lt;nau_id&gt;</span></tt> is your NAU identifier (for example, mine is <tt class="docutils literal"><span class="pre">jgc53</span></tt>), and <tt class="docutils literal"><span class="pre">&lt;homework_id&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;extension&gt;</span></tt> are provided on a per-assignment basis.</p>
 <p>Unless otherwise noted, homework must be turned in by email to <a class="reference external" href="mailto:jc33&#37;&#52;&#48;nau&#46;edu">jc33<span>&#64;</span>nau<span>&#46;</span>edu</a> before class on the day it is due.</p>
 </div>
+<div class="section" id="homework-3-alignments">
+<h2>Homework 3: Alignments<a class="headerlink" href="#homework-3-alignments" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is a big assignment. Start early!</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Homework id: <tt class="docutils literal"><span class="pre">align</span></tt>; Extension: <tt class="docutils literal"><span class="pre">ipynb</span></tt>; For this assignment, the file I turn in would be named <tt class="docutils literal"><span class="pre">jgc53_align.ipynb</span></tt>.</p>
+</div>
+<p>Begin with the Needleman-Wunsch implementation in the <a class="reference external" href="https://speakerdeck.com/gregcaporaso/bio-299-lecture-8-10-nau-fall-2013">Lecture 10 IPython Notebook</a> and the materials in the <a class="reference external" href="http://nbviewer.ipython.org/4657175/Lecture10.ipynb">Lecture 8-10 slides</a>.</p>
+<p>For this assignment you will turn in an IPython notebook. You will generate this notebook by starting with the <a class="reference external" href="http://nbviewer.ipython.org/4657175/Lecture10.ipynb">Lecture 10 IPython Notebook</a> and modifying to add new functionality and annotation.</p>
+<div class="section" id="part-1">
+<h3>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h3>
+<p>Add a new function with this <cite>exact</cite> form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nw_align</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function should return, in this order, the aligned sequence 1 as a string, the aligned sequence 2 as a string, and the score of the global alignment.</p>
+<p>To confirm that this is working for you, you should test with the following command, as this is one of the tests that we will apply to your homework:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nw_align</span><span class="p">(</span><span class="s">&#39;HEAGAWGHEE&#39;</span><span class="p">,</span><span class="s">&#39;PAWHEAE&#39;</span><span class="p">,</span><span class="n">blosum50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which should result in the following output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&quot;HEAGAWGHE-E&quot;</span><span class="p">,</span> <span class="s">&quot;--P-AW-HEAE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="part-2">
+<h3>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h3>
+<p>In the same notebook, define a new function of the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">generate_random_score_distribution</span><span class="p">(</span><span class="n">query_sequence</span><span class="p">,</span><span class="n">subject_sequence</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Which returns a list of <tt class="docutils literal"><span class="pre">n</span></tt> scores for aligning each of <tt class="docutils literal"><span class="pre">n</span></tt> random sequences of the same length as <tt class="docutils literal"><span class="pre">query_sequence</span></tt> against <tt class="docutils literal"><span class="pre">subject_sequence</span></tt>.</p>
+<p>Next, define a function that takes a query sequence, a subject sequence, and a value <tt class="docutils literal"><span class="pre">n</span></tt> with this form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fraction_better_or_equivalent_alignments</span><span class="p">(</span><span class="n">query_sequence</span><span class="p">,</span><span class="n">subject_sequence</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function should call <tt class="docutils literal"><span class="pre">generate_random_score_distribution</span></tt> to generate a list of scores for random alignments. It should then compute the score for aligning <tt class="docutils literal"><span class="pre">query_sequence</span></tt> against <tt class="docutils literal"><span class="pre">subject_sequence</span></tt>. The return value of this function should be the number of random alignment scores that are better or equal to the actual alignment score divided by <tt class="docutils literal"><span class="pre">n</span></tt>.</p>
+<p>After defining this function, use it to compare the following sequences to one another using a value of <tt class="docutils literal"><span class="pre">n=1000</span></tt> when calling <tt class="docutils literal"><span class="pre">fraction_better_or_equivalent_alignments</span></tt> as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">subject</span> <span class="o">=</span> <span class="s">&quot;SAVLDMRPPEITCLCLHSVEWFWATDRAYITKFHVGQPMKCITGCHVFCGPRTSNLLQESCMYCVFSEIGCRNSANCFNFTRSCIRISSYLFSYYIVWGC&quot;</span>
+<span class="n">query1</span> <span class="o">=</span> <span class="s">&quot;RHT&quot;</span>
+<span class="n">query2</span> <span class="o">=</span> <span class="s">&quot;RHTSWIL&quot;</span>
+<span class="n">query3</span> <span class="o">=</span> <span class="s">&quot;RHTSWIIQECWYCWFS&quot;</span>
+<span class="n">query4</span> <span class="o">=</span> <span class="s">&quot;RHTSWIIQESCWYCWFSEIGCRNSANWFNFTRSCWRISYLFS&quot;</span>
+<span class="n">fraction_better_or_equivalent_alignments</span><span class="p">(</span><span class="n">query1</span><span class="p">,</span><span class="n">subject</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">blosum50</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Each of these query sequences is designed to be similar to the subject. Also compare some randomly generated query sequences to the subject sequence. Do this several times. In a <em>markdown cell</em> just below this analysis, describe any general patterns that you notice. What do you think this means? Run this example on the alignment we worked through in class (query sequence: <tt class="docutils literal"><span class="pre">HEAGAWGHEE</span></tt>; subject sequence: <tt class="docutils literal"><span class="pre">PAWHEAE</span></tt>) and describe the results. How does this alignment compare to your randomly generated alignments?</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the <a class="reference external" href="http://nbviewer.ipython.org/4657175/Lecture8.ipynb">Lecture 8 IPython Notebook</a> there is code illustrating how to generate a random sequence of bases at a given sequence length (see the last cell where <tt class="docutils literal"><span class="pre">root_sequence</span></tt> is defined). Here we&#8217;re working with protein sequences, so the alphabet is different but the process is the same.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In my <a class="reference external" href="Sequencesearchingandalignmenthttps://speakerdeck.com/gregcaporaso/bio-299-lecture-8-10-nau-fall-2013#">Lecture 8-10 slides</a> I provide details on the differences between SW and NW initialization, scoring, and traceback.</p>
+</div>
+</div>
+<div class="section" id="part-3">
+<h3>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h3>
+<p>Define a general function that can perform global (Needleman-Wunsch; NW) or local (Smith-Waterman; SW) alignments.</p>
+<p>Define a new function, <tt class="docutils literal"><span class="pre">generate_sw_and_traceback_matrices</span></tt> with the following form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">generate_sw_and_traceback_matrices</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">gap_penalty</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The return value should be the dynamic programming matrix and the traceback matrix for a SW alignment.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will be much easier if you start with the <tt class="docutils literal"><span class="pre">generate_nw_and_traceback_matrices</span></tt> and modify it for Smith-Waterman.</p>
+</div>
+<p>Define a new function <tt class="docutils literal"><span class="pre">sw_traceback</span></tt> with the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sw_traceback</span><span class="p">(</span><span class="n">traceback_matrix</span><span class="p">,</span><span class="n">sw_matrix</span><span class="p">,</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function should return aligned the aligned sequences in the order they were passed in and the alignment score.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will be much easier if you start with the <tt class="docutils literal"><span class="pre">nw_traceback</span></tt> and modify it for Smith-Waterman.</p>
+</div>
+<p>Next, define a new function <tt class="docutils literal"><span class="pre">sw_align</span></tt> with the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sw_align</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will be much easier if you start with your <tt class="docutils literal"><span class="pre">nw_align</span></tt> function and modify it for Smith-Waterman.</p>
+</div>
+<p>Define a new function <tt class="docutils literal"><span class="pre">align</span></tt> with the following form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">align</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span><span class="n">sequence2</span><span class="p">,</span><span class="n">substitution_matrix</span><span class="p">,</span><span class="n">local</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where <tt class="docutils literal"><span class="pre">local</span></tt> is a boolean (i.e., True or False) value. This function should return aligned_sequence1, aligned_sequence2, and the best alignment score. If <tt class="docutils literal"><span class="pre">local==False</span></tt>, an NW alignment should be performed. If <tt class="docutils literal"><span class="pre">local==True</span></tt> an SW alignment should be performed.</p>
+<p>Run both local and global alignments as follows to test that this is working as expected:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">align</span><span class="p">(</span><span class="s">&#39;HEAGAWGHEE&#39;</span><span class="p">,</span><span class="s">&#39;PAWHEAE&#39;</span><span class="p">,</span><span class="n">blosum50</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which should result in the following output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&quot;HEAGAWGHE-E&quot;</span><span class="p">,</span> <span class="s">&quot;--P-AW-HEAE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">align</span><span class="p">(</span><span class="s">&#39;HEAGAWGHEE&#39;</span><span class="p">,</span><span class="s">&#39;PAWHEAE&#39;</span><span class="p">,</span><span class="n">blosum50</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which should result in the following output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&quot;AWGHE&quot;</span><span class="p">,</span> <span class="s">&quot;AW-HE&quot;</span><span class="p">,</span> <span class="mf">28.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="guest-lecture-reports-due-11-february-2013">
 <h2>Guest lecture reports (due 11 February 2013)<a class="headerlink" href="#guest-lecture-reports-due-11-february-2013" title="Permalink to this headline">¶</a></h2>
 <p>For each of the two guest lectures, turn in answers to the questions in <a class="reference external" href="https://docs.google.com/document/d/1Fieqfkbn-dMLjR6bpVqoT8E8Rb9HBtAfCSvesvIvLtI/edit">this document</a>. You can download this document and use it as a template for your assignment. You will turn these in as two separate PDFs by email to <a class="reference external" href="mailto:jc33&#37;&#52;&#48;nau&#46;edu">jc33<span>&#64;</span>nau<span>&#46;</span>edu</a>. Taking detailed notes during these lectures will make this assignment a lot simpler!</p>
@@ -163,7 +275,7 @@ GTCGTAACAAGGTAGCGGTACTGGAAGGTGCAGCTGGA</pre>
 
     <div class="footer">
         &copy; Copyright 2012, J Gregory Caporaso.
-      Last updated on Feb 01, 2013.
+      Last updated on Feb 11, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
