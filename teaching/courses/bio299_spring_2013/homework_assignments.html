@@ -55,6 +55,55 @@
 <p>Your homework must always be turned in with a standardized name. That name should be <tt class="docutils literal"><span class="pre">&lt;nau_id&gt;_&lt;homework_id&gt;.&lt;extension&gt;</span></tt>, where <tt class="docutils literal"><span class="pre">&lt;nau_id&gt;</span></tt> is your NAU identifier (for example, mine is <tt class="docutils literal"><span class="pre">jgc53</span></tt>), and <tt class="docutils literal"><span class="pre">&lt;homework_id&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;extension&gt;</span></tt> are provided on a per-assignment basis.</p>
 <p>Unless otherwise noted, homework must be turned in by email to <a class="reference external" href="mailto:jc33&#37;&#52;&#48;nau&#46;edu">jc33<span>&#64;</span>nau<span>&#46;</span>edu</a> before class on the day it is due.</p>
 </div>
+<div class="section" id="homework-4-tree-of-life">
+<h2>Homework 4: Tree of life<a class="headerlink" href="#homework-4-tree-of-life" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Homework id: <tt class="docutils literal"><span class="pre">tol</span></tt>; Extension: <tt class="docutils literal"><span class="pre">py</span></tt>, <tt class="docutils literal"><span class="pre">tre</span></tt> and <tt class="docutils literal"><span class="pre">pdf</span></tt>; For this assignment, the files I turn in would be named <tt class="docutils literal"><span class="pre">jgc53_tol.py</span></tt>, <tt class="docutils literal"><span class="pre">jgc53_tol.tre</span></tt> and <tt class="docutils literal"><span class="pre">jgc53_tol.pdf</span></tt>.</p>
+</div>
+<p>In this assignment you will make use of the PyCogent software package to automate the process of constructing a phylogenetic tree from a set of genes. This will including querying NCBI to obtain sequences, performing a multiple sequence alignment, building a phylogenetic tree, writing a newick string containing that tree to file, and writing a visualization of that tree to a PDF file.</p>
+<p>Your script must define a function called <tt class="docutils literal"><span class="pre">obtain_sequences_and_build_tree</span></tt> that takes:
+1. a list of queries (as strings) to be run against NCBI;
+2. a list of query labels (also as strings) to label the sequences resulting from each query in the final tree;
+3. the filepath where the output newick string should be written;
+4. the filepath where the output pdf should be written;
+5. an optional parameter <tt class="docutils literal"><span class="pre">n</span></tt> which defines how many randomly chosen query results should be chosen for each of the queries. The default value for <tt class="docutils literal"><span class="pre">n</span></tt> should be 5.</p>
+<p>Your <tt class="docutils literal"><span class="pre">obtain_sequences_and_build_tree</span></tt> function must return a phylogenetic tree derived from <tt class="docutils literal"><span class="pre">n</span></tt> aligned representatives of each of the queries passed via parameter 1. Your function definition should look exactly like this, where you replace <tt class="docutils literal"><span class="pre">#</span> <span class="pre">do</span> <span class="pre">a</span> <span class="pre">bunch</span> <span class="pre">of</span> <span class="pre">work</span></tt> with your code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">obtain_sequences_and_build_tree</span><span class="p">(</span><span class="n">queries</span><span class="p">,</span>
+                                    <span class="n">query_labels</span><span class="p">,</span>
+                                    <span class="n">output_newick_fp</span><span class="p">,</span>
+                                    <span class="n">output_pdf_fp</span><span class="p">,</span>
+                                    <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="c"># do a bunch of work</span>
+    <span class="k">return</span> <span class="n">tree</span>
+</pre></div>
+</div>
+<p>As part of your analysis, you should filter any sequences that have one or more <tt class="docutils literal"><span class="pre">N</span></tt> characters in them. Each sequence label in the output tree should begin with the query label corresponding to that sequence. <tt class="docutils literal"><span class="pre">tree</span></tt> should be a PyCogent <tt class="docutils literal"><span class="pre">PhyloNode</span></tt> object (the output of <tt class="docutils literal"><span class="pre">cogent.app.fasttree.build_tree_from_alignment</span></tt>).</p>
+<p>In your script, you should call the function you define as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">obtain_sequences_and_build_tree</span><span class="p">(</span>
+     <span class="p">[</span><span class="s">&#39;&quot;small subunit rRNA&quot;[ti] AND archaea[orgn]&#39;</span><span class="p">,</span>
+      <span class="s">&#39;&quot;small subunit rRNA&quot;[ti] AND bacteria[orgn]&#39;</span><span class="p">,</span>
+      <span class="s">&#39;&quot;small subunit rRNA&quot;[ti] AND eukarya[orgn]&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s">&#39;A: &#39;</span><span class="p">,</span><span class="s">&#39;B: &#39;</span><span class="p">,</span><span class="s">&#39;E: &#39;</span><span class="p">],</span>
+     <span class="s">&quot;&lt;nau-id&gt;_tol.tre&quot;</span><span class="p">,</span>
+     <span class="s">&quot;&lt;nau-id&gt;_tol.pdf&quot;</span><span class="p">,</span>
+     <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">&lt;nau-id&gt;</span></tt> is replaced with your NAU identifier. This should perform all of the analysis steps and write the newick file and PDF to the directory where you are running the script from. You&#8217;ll turn in the script, the newick file, and the PDF.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference external" href="http://dl.dropbox.com/u/2868868/pycogent_160dev_docs/cookbook/building_a_tree_of_life.html">This page</a> should help quite a lot.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The cluster has PyCogent, muscle, and FastTree preinstalled. Working there will save you a lot of time on software installation.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember that you can call <tt class="docutils literal"><span class="pre">dir()</span></tt> on an object to find out what methods are available to that object. One of the methods associated with your tree object will help you generate a newick formatted tree.</p>
+</div>
+</div>
 <div class="section" id="homework-3-alignments">
 <h2>Homework 3: Alignments<a class="headerlink" href="#homework-3-alignments" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
