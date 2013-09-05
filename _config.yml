@@ -1,0 +1,70 @@
+title:            Caporaso Lab
+description:     Coparso Lab Site 
+logo:             site-logo.png
+#Comment out url when working locally to resolve base urls correctly
+url:              "caporaso.us"
+
+
+people: 
+  - Demo-User
+  - User2
+  - User3
+  - User4
+
+projects:
+  - Demo-Project
+  - project2
+  - project3
+  - project4
+
+# Owner/author information
+owner:
+  name:           J Gregory Caporaso
+  email:          gregcaporaso@gmail.com
+  # Social networking links used in footer. Update and remove as you like.
+  github:         "gregcaporaso"
+  # For Google Authorship https://plus.google.com/authorship
+
+# Analytics and webmaster tools stuff goes here
+
+# Links to include in top navigation
+# For external links add external: true
+links:
+  - title: Home
+    url: /
+  - title: People
+    url: /people
+  - title: Projects
+    url: /projects
+  - title: Software
+    url: /software
+  - title: Publications
+    url: /publications
+  - title: Contact
+    url: /contact
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    America/Phoenix
+future:      true
+pygments:    true
+markdown:    kramdown
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers: 
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "so-simple-theme.sublime-project", "so-simple-theme.sublime-workspace"]

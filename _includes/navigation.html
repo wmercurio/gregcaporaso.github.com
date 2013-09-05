@@ -1,0 +1,12 @@
+<div id="heading"><h1><a href="/">Caporaso Lab</a></h1></div>
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        {% for link in site.links %}
+			<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+	        {% endfor %}
+	        
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
