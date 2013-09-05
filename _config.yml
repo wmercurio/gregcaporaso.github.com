@@ -1,9 +1,8 @@
 title:            Caporaso Lab
-description:      A simple and clean responsive Jekyll theme for words and photos.
+description:     Coparso Lab Site 
 logo:             site-logo.png
-disqus_shortname: sosimpletheme
 #Comment out url when working locally to resolve base urls correctly
-url:              "http://localhost:4000"
+url:              "caporaso.us"
 
 
 people: 
@@ -21,23 +20,12 @@ projects:
 # Owner/author information
 owner:
   name:           J Gregory Caporaso
-#  avatar:         michael-rose-photo.jpg
   email:          gregcaporaso@gmail.com
   # Social networking links used in footer. Update and remove as you like.
-#  twitter:        "mmistakes"
-#  facebook:       "michaelrose"
   github:         "gregcaporaso"
-#  linkedin:       "michaelrose"
-#  instagram:      "mmistakes"
-#  tumblr:         "mademistakes"
   # For Google Authorship https://plus.google.com/authorship
-#  google_plus:    "http://plus.google.com/118238196859537351707"
 
 # Analytics and webmaster tools stuff goes here
-#google_analytics:   UA-2011187-2
-#google_verify:      UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-#bing_verify:        D81F4C18A6CB3018F64D7C827D953DFD   
 
 # Links to include in top navigation
 # For external links add external: true
