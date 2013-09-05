@@ -1,0 +1,22 @@
+---
+layout: page
+title: People
+---
+
+
+We need a brief introduction here
+
+	<h3>People:</h3>{% for person in site.people %}{% for page in site.pages %}{% if page.datatype == 'bio' %}{% if page.title == person %}{% comment %}{% capture color %}{% cycle 'color_cycle': ' style="border-color:#fc0018;"',' style="border-color:#00ff00;"',' style="border-color:#5a00ff;"' %}{% endcapture %}{% endcomment %}
+	<div class='user'>
+		<div {% cycle 'user_cycle': 'class="userLeft"', 'class="userRight"' %} {{ color }}>
+			<div class="userProfile"><a href="{{site.url}}{{page.url | replace: "index.html" ""}}">{{ page.title }}</a></div>
+				<div class="userBio">
+					{{ page.abstract }}
+				</div>
+			</div>
+		<div {% cycle 'pictures': 'class="profileRight"','class="profileLeft"' %} {{color}}>
+			<img src="/people/default_profile_picture.png" />
+		</div>
+	</div>{% endif %}{% endif %}{% endfor %}{% endfor %}
+
+ 
