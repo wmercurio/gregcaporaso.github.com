@@ -2,7 +2,7 @@ title:            Caporaso Lab
 description:     Coparso Lab Site 
 logo:             site-logo.png
 #Comment out url when working locally to resolve base urls correctly
-url:              "ebolyen.github.io"
+url:              "http://ebolyen.github.io"
 
 
 people: 
