@@ -6,10 +6,8 @@ url:              "http://ebolyen.github.io"
 
 
 people: 
-  - Demo-User
-  - User2
-  - User3
-  - User4
+  - demo-user
+  - evan-bolyen
 
 projects:
   - Demo-Project
