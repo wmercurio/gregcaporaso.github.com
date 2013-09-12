@@ -10,5 +10,6 @@ abstract: "My dissertation research at Michigan State University focused on the 
 Postdoctoral scholar, Center for Microbial Genetics and Genomics.  
 email: kcaliff@gmail.com
 
-<h4><center><style type="text/css">a {text-decoration: none}</style><font face="candara" color="C299C2"font size="6px"/font>click below for curriculum vitae: </center></h4>
-<a href="KCaliffCV.pdf" target= "_blank" img src="images/pdf.gif" height="100px" alt="Katy J. Califf CV"/img>K.J. Califf CV
+Click below for curriculum vitae:
+
+<a href="KCaliffCV.pdf" target= "_blank">Katy J. Califf CV</a>
