@@ -2,9 +2,7 @@
 layout: bio
 datatype: project
 
-title: Office-Succession
-permalink: office-succession/index.html
-profile: 
+title: Office Succession
 abstract: "As North Americans we spend the vast majority of our time indoors. We know that microbial communities that cohabit our homes, offices, vehicles, and hospitals (among other indoor spaces), which typically harmless, under certain circumstances can have a negative impact on the health of building inhabitants. However at this stage we have very little understanding of environmental factors contribute to the establishment of certain microbial communities in the built environment. The goal of this project is to understand successional patterns in the establishment of fungal and bacterial communities in the built environment, specifically investigating the role of climate and surface material on the establishment of microbial communities on common office-building materials."
 ---
 

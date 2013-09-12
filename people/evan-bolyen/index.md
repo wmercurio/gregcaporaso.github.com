@@ -3,7 +3,7 @@ layout: bio
 datatype: bio
 
 title: "Evan Bolyen"
-profile: "evan.png"
+picture: "evan-bolyen/profile.png"
 abstract: "My name is Evan Bolyen. I am an undergrad at NAU."
 ---
 

@@ -2,7 +2,7 @@ title:            Caporaso Lab
 description:     Coparso Lab Site 
 logo:             site-logo.png
 #Comment out url when working locally to resolve base urls correctly
-url:              "http://ebolyen.github.io"
+#url:              "http://ebolyen.github.io"
 
 
 people: 
@@ -12,12 +12,12 @@ people:
   - Crystal Hepp
   - Bo Maxwell Stevens
   - Dan Domogala
-  - Evan Bolyen
   - Jai Ram Rideout
+  - Evan Bolyen
 
 projects:
-  - Office-Succession
-  - Student-Microbiome
+  - Office Succession
+  - Student Microbiome
 
 # Owner/author information
 owner:
