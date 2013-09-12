@@ -17,6 +17,8 @@ Assistant Professor, Institute for Genomics and Systems Biology
 Argonne National Laboratory
 Argonne, IL 60439, USA.
 
+Most of my software projects are available under an open source license (either GPL or BSD), and publicly hosted on GitHub. You can [find me here on GitHub](https://github.com/gregcaporaso).
+
 [Curriculum vitae](https://docs.google.com/document/d/18TA9AzwRloj4RFNwxgVyxYeQEiJGuWNwCDSJhdoParQ/pub)
 
 Publications (via [PubMed](http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&cmd=Search&term=%22Caporaso+JG%22%5BAuthor%5D) or [Google Scholar](http://scholar.google.com/citations?hl=en&user=8wv9sLkAAAAJ))
