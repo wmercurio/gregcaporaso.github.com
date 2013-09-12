@@ -6,7 +6,7 @@ url:              "http://ebolyen.github.io"
 
 
 people: 
-  - Demo User
+  - Greg Caporaso
   - John Chase
   - Katy Califf
   - Crystal Hepp
@@ -16,10 +16,8 @@ people:
   - Jai Ram Rideout
 
 projects:
-  - Demo-Project
-  - project2
-  - project3
-  - project4
+  - Office-Succession
+  - Student-Microbiome
 
 # Owner/author information
 owner:
