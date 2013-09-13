@@ -4,7 +4,7 @@ datatype: bio
 
 title: Greg Caporaso
 picture: "greg-caporaso/profile.jpg" 
-abstract: "I am an Assistant Professor in the Department of Biological Sciences and Assistant Director of the Center for Microbial Genetics and Genomics at Northern Arizona University. My research interests are focused on understanding how the communities of micro-organisms that live in and on our bodies, and who cohabit our homes and offices, affect human health, and ultimately how we can use that understanding to improve human health by developing microbiome-based treatments of disease. Toward this end, my lab is develops software and methods for studying microbial ecology."
+abstract: "I am an Assistant Professor in the Department of Biological Sciences and Assistant Director of the Center for Microbial Genetics and Genomics at Northern Arizona University. My research interests are focused on understanding how the communities of micro-organisms that live in and on our bodies, and who cohabit our homes and offices, affect human health, and ultimately how we can use that understanding to improve human health by developing microbiome-based treatments of disease. Toward this end, my lab develops software and methods for studying microbial ecology."
 ---
 
 Assistant Professor, Department of Biological Sciences
