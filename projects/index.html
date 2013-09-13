@@ -6,12 +6,16 @@ title: Projects
 
 
 {% for project in site.projects %}{% for page in site.pages %}{% if page.datatype == 'project' %}{% if page.title == project %}
-	<div>
-			<div class="projectPage"><a href="{{site.url}}{{page.url | replace: "index.html" ""}}">{{ page.title }}</a></div>
-				<div class="projectAbstract">
+	<div class='user'>
+		<div {% cycle 'user_cycle': 'class="userLeft"', 'class="userRight"' %} >
+			<div class="userProfile"><a href="{{site.url}}{{page.url | replace: "index.html" ""}}">{{ page.title }}</a></div>
+				<div class="userBio">
 					{{ page.abstract }}
 				</div>
-
+			</div>
+		<div {% cycle 'pictures': 'class="profileRight"','class="profileLeft"' %} >
+			<img src="{{page.picture}}" />
+		</div>
 	</div>{% endif %}{% endif %}{% endfor %}{% endfor %}
 
  
