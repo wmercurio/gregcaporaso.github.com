@@ -4,9 +4,8 @@ title: Projects
 ---
 
 
-We need a brief introduction here
 
-	<h3>Projects:</h3>{% for project in site.projects %}{% for page in site.pages %}{% if page.datatype == 'project' %}{% if page.title == project %}
+{% for project in site.projects %}{% for page in site.pages %}{% if page.datatype == 'project' %}{% if page.title == project %}
 	<div>
 			<div class="projectPage"><a href="{{site.url}}{{page.url | replace: "index.html" ""}}">{{ page.title }}</a></div>
 				<div class="projectAbstract">

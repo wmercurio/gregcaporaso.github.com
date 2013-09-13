@@ -8,6 +8,7 @@ abstract: "I am an Assistant Professor in the Department of Biological Sciences 
 ---
 
 Assistant Professor, Department of Biological Sciences
+
 Assistant Professor, Department of Computer Science
 Assistant Director, Center for Microbial Genetics and Genomics
 Northern Arizona University
