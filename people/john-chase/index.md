@@ -4,7 +4,7 @@ datatype: bio
 
 title: "John Chase"
 picture: "john-chase/profile.png"
-abstract: "I am currently an graduate student at Northern Arizona University. I graduated From NAU with degrees in Biology and Sociology with minors in Chemistry and Spanish. My interest were initially in microbiology and molecular techniques however my focus has since shifted to primarily bioinformatics. I am currently working on multiple projects, my main project is studying the succession of microbial communities on office surfaces across varying climates and locations. I am also working on a project to use different file formats that will allow for increased computational abilities on human genetic information"
+abstract: "I am a graduate student at Northern Arizona University. I graduated From NAU with degrees in Biology and Sociology with minors in Chemistry and Spanish. My interests are primarily genetics and bioinformatics. I am currently working on multiple projects, my main project is studying the succession of microbial communities on office surfaces across varying climates and locations. I am also working on a project to use different file formats that will allow for increased computational abilities on human genetic information"
 ---
 
 #Contact Information
