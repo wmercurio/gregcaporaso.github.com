@@ -5,7 +5,7 @@ To begin editing the website you first need to install [Git](http://git-scm.com/
 
 You will also require a github account. Sign up for github before continuing.
 
-Navigate to https://github.com/ebolyen/ebolyen.github.io and in the top right corner, click "Fork".
+Navigate to https://github.com/gregcaporaso/gregcaporaso.github.com and in the top right corner, click "Fork".
 What this does is it creates a clone of a repository under your github account. This is a github specific feature that maintains the relation between your copy and the original. This is used to allow "Pull Requests" but more on that later.
 
 You will now be looking at your copy of the repository you have just created. On the right had side there will be a box that contains a URL and is titled "HTTPS clone URL", copy the contents of this box.
@@ -64,4 +64,4 @@ You are free to give the request a title and description, but for the purposes o
 
 Now it will be my (Evan) job to merge your pull request. Once I have done so you will be able to see your changes at:
 
-http://ebolyen.github.io
+http://caporaso.us
