@@ -1,0 +1,21 @@
+---
+layout: page
+title: People
+---
+
+
+
+{% for person in site.people %}{% for page in site.pages %}{% if page.datatype == 'bio' %}{% if page.title == person %}
+	<div class='user'>
+		<div {% cycle 'user_cycle': 'class="userLeft"', 'class="userRight"' %} >
+			<div class="userProfile"><a href="{{site.url}}{{page.url | replace: "index.html" ""}}">{{ page.title }}</a></div>
+				<div class="userBio">
+					{{ page.abstract }}
+				</div>
+			</div>
+		<div {% cycle 'pictures': 'class="profileRight"','class="profileLeft"' %} >
+			<img src="{{page.picture}}" />
+		</div>
+	</div>{% endif %}{% endif %}{% endfor %}{% endfor %}
+
+ 
