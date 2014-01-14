@@ -10,9 +10,9 @@
     
     <title>In-class assignments &mdash; bioinformatics@nau</title>
     
-    <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/print.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/print.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -23,10 +23,10 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/theme_extras.js"></script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <script type="text/javascript" src="../../static/theme_extras.js"></script>
     <link rel="top" title="bioinformatics@nau" href="../../index.html" /> 
   </head>
   <body>
@@ -102,7 +102,7 @@ date</pre>
 </div>
 <div class="section" id="using-curl-and-grep">
 <h3>Using <tt class="docutils literal"><span class="pre">curl</span></tt> and <tt class="docutils literal"><span class="pre">grep</span></tt><a class="headerlink" href="#using-curl-and-grep" title="Permalink to this headline">¶</a></h3>
-<p>Download the EMP minimal mapping file, directly into your AWS instance, from <a class="reference download internal" href="../../_downloads/emp_11sept2012_minimal_mapping_file.txt.gz"><tt class="xref download docutils literal"><span class="pre">here</span></tt></a> using <tt class="docutils literal"><span class="pre">curl</span></tt> - you&#8217;ll need to unzip that file with <tt class="docutils literal"><span class="pre">gunzip</span></tt> to get started. You can read about the <a class="reference external" href="http://qiime.org/documentation/file_formats.html#metadata-mapping-files">file format here</a>.</p>
+<p>Download the EMP minimal mapping file, directly into your AWS instance, from <a class="reference download internal" href="../../downloads/emp_11sept2012_minimal_mapping_file.txt.gz"><tt class="xref download docutils literal"><span class="pre">here</span></tt></a> using <tt class="docutils literal"><span class="pre">curl</span></tt> - you&#8217;ll need to unzip that file with <tt class="docutils literal"><span class="pre">gunzip</span></tt> to get started. You can read about the <a class="reference external" href="http://qiime.org/documentation/file_formats.html#metadata-mapping-files">file format here</a>.</p>
 <p>How do you invert a search with <tt class="docutils literal"><span class="pre">grep</span></tt>?  How many lines contain information on human-associated samples? How many lines contain information on non-human-associated samples?</p>
 </div>
 </div>
@@ -111,26 +111,26 @@ date</pre>
 <p>These exercises will make use a text editor, such as TextWrangler or jEdit.</p>
 <div class="section" id="reformat-blast9-output">
 <h3>Reformat blast9 output<a class="headerlink" href="#reformat-blast9-output" title="Permalink to this headline">¶</a></h3>
-<p>Start with <a class="reference download internal" href="../../_downloads/blastx_out.bl9"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a></p>
+<p>Start with <a class="reference download internal" href="../../downloads/blastx_out.bl9"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a></p>
 <p>Remove header (i.e. comment) lines</p>
 <p>Format each line to contain the subject id, the query id, the e-value, the percent identity, and the alignment length, in that order!
 Format as comma-separated text</p>
 </div>
 <div class="section" id="rearrange-tabular-data">
 <h3>Rearrange tabular data<a class="headerlink" href="#rearrange-tabular-data" title="Permalink to this headline">¶</a></h3>
-<p>Start with <a class="reference download internal" href="../../_downloads/Ch3observations.txt"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a> (source: <cite>Practical Computing for Biologists</cite>)</p>
+<p>Start with <a class="reference download internal" href="../../downloads/Ch3observations.txt"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a> (source: <cite>Practical Computing for Biologists</cite>)</p>
 </div>
 </div>
 <div class="section" id="lecture-4">
 <h2>Lecture 4<a class="headerlink" href="#lecture-4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="reformat-sequence-headers-in-a-fasta-file">
 <h3>Reformat sequence headers in a fasta file<a class="headerlink" href="#reformat-sequence-headers-in-a-fasta-file" title="Permalink to this headline">¶</a></h3>
-<p>Start with <a class="reference download internal" href="../../_downloads/regex_seqs.fasta"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a></p>
+<p>Start with <a class="reference download internal" href="../../downloads/regex_seqs.fasta"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a></p>
 <p>Rewrite each identifier as the portion of the identifier preceding the . character, followed by an underscore, followed by the genus name.</p>
 </div>
 <div class="section" id="reformat-coordinates">
 <h3>Reformat coordinates<a class="headerlink" href="#reformat-coordinates" title="Permalink to this headline">¶</a></h3>
-<p>Start with <a class="reference download internal" href="../../_downloads/LatLon.txt"><tt class="xref download docutils literal"><span class="pre">LatLong.txt</span></tt></a> (source: <cite>Practical Computing for Biologists</cite>)
+<p>Start with <a class="reference download internal" href="../../downloads/LatLon.txt"><tt class="xref download docutils literal"><span class="pre">LatLong.txt</span></tt></a> (source: <cite>Practical Computing for Biologists</cite>)
 Make Lat/Long pairs tab-separated on a single line
 Remove trailing N and E, and replace with leading +
 Remove trailing S and W, and replace with leading -</p>
@@ -140,7 +140,7 @@ Remove trailing S and W, and replace with leading -</p>
 <h2>Lecture 3<a class="headerlink" href="#lecture-3" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="reformat-taxa-names">
 <h3>Reformat taxa names<a class="headerlink" href="#reformat-taxa-names" title="Permalink to this headline">¶</a></h3>
-<p>Start with <a class="reference download internal" href="../../_downloads/taxa_list.txt"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a></p>
+<p>Start with <a class="reference download internal" href="../../downloads/taxa_list.txt"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">file</span></tt></a></p>
 <p>Reformat taxa names to genus abbreviation, species name, name of person who named the species separated by underscores and excluding any parenthesis.</p>
 </div>
 </div>
