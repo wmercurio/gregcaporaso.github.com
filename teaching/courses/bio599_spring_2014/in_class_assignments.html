@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -44,6 +46,31 @@
         
   <div class="section" id="in-class-assignments">
 <h1>In-class assignments<a class="headerlink" href="#in-class-assignments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lecture-5">
+<h2>Lecture 5<a class="headerlink" href="#lecture-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-koding-account">
+<h3>Create a koding account<a class="headerlink" href="#create-a-koding-account" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want e-mail updates on NAU&#8217;s Linux cluster (and other local &#8220;big data&#8221; topics), see <a class="reference external" href="http://caporasolab.us/teaching/#keeping-up-to-date-on-bioinformatics-at-nau">here</a>.**</p>
+</div>
+<p>Go <a class="reference external" href="https://koding.com/R/gregcaporaso">here</a>) to create a new account at koding.com. Boot up a virtual machine, and open the terminal.</p>
+<p>The remaining exercises will be performed in your koding.com virtual machine.</p>
+</div>
+<div class="section" id="using-curl-and-grep">
+<h3>Using <tt class="docutils literal"><span class="pre">curl</span></tt> and <tt class="docutils literal"><span class="pre">grep</span></tt><a class="headerlink" href="#using-curl-and-grep" title="Permalink to this headline">¶</a></h3>
+<p>Download the EMP minimal mapping file, directly into your AWS instance, from <a class="reference external" href="https://www.dropbox.com/s/up005whnyunid9o/emp_11sept2012_minimal_mapping_file.txt.zip">here</a> using <tt class="docutils literal"><span class="pre">curl</span></tt>. You&#8217;ll need to unzip that file with <tt class="docutils literal"><span class="pre">gunzip</span></tt> to get started. You can read about the <a class="reference external" href="http://qiime.org/documentation/file_formats.html#metadata-mapping-files">file format here</a>.</p>
+<p>How do you invert a search with <tt class="docutils literal"><span class="pre">grep</span></tt>?  How many lines contain information on human-associated samples? How many lines contain information on non-human-associated samples?</p>
+</div>
+<div class="section" id="using-grep-and-navigating-directories">
+<h3>Using <tt class="docutils literal"><span class="pre">grep</span></tt> and navigating directories<a class="headerlink" href="#using-grep-and-navigating-directories" title="Permalink to this headline">¶</a></h3>
+<p>Under the <tt class="docutils literal"><span class="pre">qiime_software</span></tt> directory, there is a <tt class="docutils literal"><span class="pre">gg_otus_4feb2011</span></tt> directory, and another directory under that called <tt class="docutils literal"><span class="pre">rep_set</span></tt> which contains several fasta files. How do you perform a search with <tt class="docutils literal"><span class="pre">grep</span></tt>? How do you get <tt class="docutils literal"><span class="pre">grep</span></tt> to print the number of lines in a file rather than the lines which match a pattern? How many sequence records are in the <tt class="docutils literal"><span class="pre">97</span></tt>, <tt class="docutils literal"><span class="pre">88</span></tt>, and <tt class="docutils literal"><span class="pre">73</span></tt> variants of those files?</p>
+</div>
+<div class="section" id="configure-ftp-in-your-coding-account">
+<h3>Configure ftp in your coding account<a class="headerlink" href="#configure-ftp-in-your-coding-account" title="Permalink to this headline">¶</a></h3>
+<p>See the instructions here.</p>
+</div>
+</div>
 <div class="section" id="lecture-2">
 <h2>Lecture 2<a class="headerlink" href="#lecture-2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="working-with-regular-expressions">
@@ -72,8 +99,8 @@
 
     <div class="footer">
         &copy; Copyright 2012, J Gregory Caporaso.
-      Last updated on Jan 21, 2014.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+      Last updated on Jan 28, 2014.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
