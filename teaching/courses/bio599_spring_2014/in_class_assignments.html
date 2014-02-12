@@ -72,9 +72,10 @@
 <p>This will involve changing permissions using chmod, setting your <tt class="docutils literal"><span class="pre">PATH</span></tt> environment variable with <tt class="docutils literal"><span class="pre">export</span></tt>, and adding that export command to your <tt class="docutils literal"><span class="pre">$HOME/.bashrc</span></tt> script.</p>
 <p>You can do this as follows:</p>
 <div class="highlight-python"><pre>mkdir $HOME/scripts
+echo "" &gt;&gt; $HOME/.bashrc
 echo "export PATH=$HOME/scripts:$PATH" &gt;&gt; $HOME/.bashrc</pre>
 </div>
-<p>You&#8217;ll then need to open a new terminal window so <tt class="docutils literal"><span class="pre">$HOME/.bashrc</span></tt> is executed (and your <tt class="docutils literal"><span class="pre">$PATH</span></tt> variable gets set).</p>
+<p>You&#8217;ll then need to open a new terminal window so <tt class="docutils literal"><span class="pre">$HOME/.bashrc</span></tt> is executed (and your <tt class="docutils literal"><span class="pre">$PATH</span></tt> variable gets set). You can then copy your script into <tt class="docutils literal"><span class="pre">$HOME/scripts</span></tt>, and you should be able to run it from anywhere on the system.</p>
 </div>
 <div class="section" id="configure-ftp-in-your-coding-account">
 <h3>Configure ftp in your coding account<a class="headerlink" href="#configure-ftp-in-your-coding-account" title="Permalink to this headline">¶</a></h3>
