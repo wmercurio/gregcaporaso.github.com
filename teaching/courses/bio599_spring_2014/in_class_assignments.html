@@ -46,8 +46,8 @@
         
   <div class="section" id="in-class-assignments">
 <h1>In-class assignments<a class="headerlink" href="#in-class-assignments" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="lecture-5">
-<h2>Lecture 5<a class="headerlink" href="#lecture-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lecture-6">
+<h2>Lecture 6<a class="headerlink" href="#lecture-6" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="working-with-the-python-interpreter">
 <h3>Working with the python interpreter<a class="headerlink" href="#working-with-the-python-interpreter" title="Permalink to this headline">¶</a></h3>
 <p>Run the command <tt class="docutils literal"><span class="pre">python</span></tt> to open the python interpreter.</p>
@@ -65,19 +65,31 @@
 <div>hello_world.py</div></blockquote>
 </div>
 </div>
+<div class="section" id="lecture-5">
+<h2>Lecture 5<a class="headerlink" href="#lecture-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="make-your-script-developed-in-class-last-time-executable-from-anywhere-on-the-system">
+<h3>Make your script developed in class last time executable from anywhere on the system.<a class="headerlink" href="#make-your-script-developed-in-class-last-time-executable-from-anywhere-on-the-system" title="Permalink to this headline">¶</a></h3>
+<p>This will involve changing permissions using chmod, setting your <tt class="docutils literal"><span class="pre">PATH</span></tt> environment variable with <tt class="docutils literal"><span class="pre">export</span></tt>, and adding that export command to your <tt class="docutils literal"><span class="pre">$HOME/.bashrc</span></tt> script.</p>
+<p>You can do this as follows:</p>
+<div class="highlight-python"><pre>mkdir $HOME/scripts
+echo "export PATH=$HOME/scripts:$PATH &gt;&gt; $HOME/.bashrc"</pre>
+</div>
+<p>You&#8217;ll then need to open a new terminal window so <tt class="docutils literal"><span class="pre">$HOME/.bashrc</span></tt> is executed (and your <tt class="docutils literal"><span class="pre">$PATH</span></tt> variable gets set).</p>
+</div>
+<div class="section" id="configure-ftp-in-your-coding-account">
+<h3>Configure ftp in your coding account<a class="headerlink" href="#configure-ftp-in-your-coding-account" title="Permalink to this headline">¶</a></h3>
+<p>See the instructions <a class="reference external" href="http://learn.koding.com/setting-up-ftp-on-koding/">here</a>.</p>
+</div>
+</div>
 <div class="section" id="lecture-4">
 <h2>Lecture 4<a class="headerlink" href="#lecture-4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="using-grep-and-navigating-directories">
 <h3>Using <tt class="docutils literal"><span class="pre">grep</span></tt> and navigating directories<a class="headerlink" href="#using-grep-and-navigating-directories" title="Permalink to this headline">¶</a></h3>
 <p>Download the Greengenes 13_8 OTUs subset from <a class="reference external" href="https://dl.dropboxusercontent.com/s/a0coxo8zkw6qz63/gg_13_8_otus_sub.tgz">here</a> using curl. Untar/zip the file (hint: use <tt class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzvf</span></tt>), and change to the resulting directory. Under this directory, there is another directory called <tt class="docutils literal"><span class="pre">rep_set</span></tt> which contains several fasta files. How do you get <tt class="docutils literal"><span class="pre">grep</span></tt> to print the number of lines in a file rather than the lines which match a pattern? How many sequence records are in the <tt class="docutils literal"><span class="pre">97</span></tt>, <tt class="docutils literal"><span class="pre">88</span></tt>, and <tt class="docutils literal"><span class="pre">73</span></tt> variants of those files?</p>
 </div>
-<div class="section" id="configure-ftp-in-your-coding-account">
-<h3>Configure ftp in your coding account<a class="headerlink" href="#configure-ftp-in-your-coding-account" title="Permalink to this headline">¶</a></h3>
-<p>See the instructions <a class="reference external" href="http://learn.koding.com/setting-up-ftp-on-koding/">here</a>.</p>
-</div>
 <div class="section" id="writing-a-first-shell-script">
 <h3>Writing a first shell script<a class="headerlink" href="#writing-a-first-shell-script" title="Permalink to this headline">¶</a></h3>
-<p>Set your <tt class="docutils literal"><span class="pre">PATH</span></tt> environment variable to contain a new <tt class="docutils literal"><span class="pre">scripts</span></tt> directory under your directory. Create a new file called <tt class="docutils literal"><span class="pre">my_script.sh</span></tt> with <tt class="docutils literal"><span class="pre">nano</span></tt> and enter the following text:</p>
+<p>Create a new file called <tt class="docutils literal"><span class="pre">my_script.sh</span></tt> with <tt class="docutils literal"><span class="pre">nano</span></tt> and enter the following text:</p>
 <div class="highlight-python"><pre>#!/bin/bash
 echo "Below are contents of the directory:"
 pwd
@@ -87,6 +99,9 @@ date</pre>
 </div>
 <p>Now change the permissions on this file to give it execute permissions:</p>
 <div class="highlight-python"><pre>chmod u+x my_script.sh</pre>
+</div>
+<p>Then execute this by running:</p>
+<div class="highlight-python"><pre>./my_script.sh</pre>
 </div>
 <p>This exercise is derived from <em>Practical Computing for Biologists</em></p>
 </div>
