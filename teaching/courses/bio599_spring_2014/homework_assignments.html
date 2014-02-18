@@ -55,6 +55,35 @@
 <p>Your homework must always be turned in with a standardized name. That name should be <tt class="docutils literal"><span class="pre">&lt;nau_id&gt;_&lt;homework_id&gt;.&lt;extension&gt;</span></tt>, where <tt class="docutils literal"><span class="pre">&lt;nau_id&gt;</span></tt> is your NAU identifier (for example, mine is <tt class="docutils literal"><span class="pre">jgc53</span></tt>), and <tt class="docutils literal"><span class="pre">&lt;homework_id&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;extension&gt;</span></tt> are provided on a per-assignment basis.</p>
 <p>Unless otherwise noted, homework must be turned in by email to <a class="reference external" href="mailto:gregcaporaso&#37;&#52;&#48;gmail&#46;com">gregcaporaso<span>&#64;</span>gmail<span>&#46;</span>com</a> before class on the day it is due.</p>
 </div>
+<div class="section" id="programming-assignment-1-due-4-mar-2014">
+<h2>Programming Assignment 1 (due 4 Mar 2014)<a class="headerlink" href="#programming-assignment-1-due-4-mar-2014" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Write a program that does the following:</dt>
+<dd><ul class="first last simple">
+<li>query a user for an input sequence</li>
+<li>print the sequence, all in uppercase, in four orientations (forward, reverse, forward complement, reverse complement), where forward refers to the sequence that was passed in.</li>
+<li>print the GC content (percent of the sequence which is either G or C) of the forward orientation of the sequence</li>
+<li>print the length of the sequence</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Complementing the sequence can be tricky with your current skill set. You may need to go through an intermediate state by replacing characters with some other character. There are many ways to do this and the goal here is to get the right answer. I don&#8217;t care how you implement it.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To reverse a string <tt class="docutils literal"><span class="pre">s</span></tt>, you can use the command <tt class="docutils literal"><span class="pre">s_rev</span> <span class="pre">=</span> <span class="pre">s[::-1]</span></tt> We&#8217;ll talk about this syntax within the next couple of weeks - for now, just treat this command as magic.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To perform real division using integers, add the following line at the beginning of your file (just after the <cite>shebang</cite> line): <tt class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">division</span></tt></p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Homework id: <tt class="docutils literal"><span class="pre">sequence_stats</span></tt>; Extension: <tt class="docutils literal"><span class="pre">py</span></tt>; For this assignment, the file I turn in would be named <tt class="docutils literal"><span class="pre">jgc53_sequence_stats.py</span></tt>.</p>
+</div>
+</div>
 <div class="section" id="shell-script-due-18-feb-2014">
 <h2>Shell script (due 18 Feb 2014)<a class="headerlink" href="#shell-script-due-18-feb-2014" title="Permalink to this headline">¶</a></h2>
 <p>In this assignment you will automate retrieval and processing of PDB files with a shell (<tt class="docutils literal"><span class="pre">bash</span></tt>) script, and turn that script in. I will run that script and grade you on the results.</p>
@@ -136,7 +165,7 @@
 
     <div class="footer">
         &copy; Copyright 2012, J Gregory Caporaso.
-      Last updated on Feb 12, 2014.
+      Last updated on Feb 18, 2014.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
