@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -54,6 +56,14 @@
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
 <p class="last">Don&#8217;t forget the <em>shebang</em> line. For python scripts, this should look like <tt class="docutils literal"><span class="pre">#!/usr/bin/env</span> <span class="pre">python</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="create-a-sequence-processor-script">
+<h3>Create a &#8220;sequence processor&#8221; script<a class="headerlink" href="#create-a-sequence-processor-script" title="Permalink to this headline">¶</a></h3>
+<p>Define a new script called <tt class="docutils literal"><span class="pre">sequence_processor.py</span></tt>. This script should take two arguments on the command line, a function and a sequence, and output the results of applying the specified function to the sequence. Be creative in what functions you support (but some ideas are <tt class="docutils literal"><span class="pre">compute-length</span></tt> and <tt class="docutils literal"><span class="pre">compute-gc-content</span></tt>). Add a <tt class="docutils literal"><span class="pre">help</span></tt> function which prints out some information on how to use your script and what functions it supports.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">Use <tt class="docutils literal"><span class="pre">argv</span></tt> to load command line arguments. To do this, you&#8217;ll need to include the line <tt class="docutils literal"><span class="pre">from</span> <span class="pre">sys</span> <span class="pre">import</span> <span class="pre">argv</span></tt> toward the top of your script.</p>
 </div>
 </div>
 </div>
@@ -162,7 +172,7 @@ date</pre>
     <div class="footer">
         &copy; Copyright 2012, J Gregory Caporaso.
       Last updated on Feb 25, 2014.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
