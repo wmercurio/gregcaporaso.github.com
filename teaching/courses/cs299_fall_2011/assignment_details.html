@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,7 +10,6 @@
     
     <link rel="stylesheet" href="../../static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../static/print.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -26,7 +23,6 @@
     <script type="text/javascript" src="../../static/jquery.js"></script>
     <script type="text/javascript" src="../../static/underscore.js"></script>
     <script type="text/javascript" src="../../static/doctools.js"></script>
-    <script type="text/javascript" src="../../static/theme_extras.js"></script>
     <link rel="top" title="bioinformatics@nau" href="../../index.html" />
     <link rel="up" title="Bio/CS 299 - Bioinformatics I: Introduction to Bioinformatics (Fall 2011)" href="index.html" />
     <link rel="next" title="Application presentations" href="application_presentations.html" />
@@ -86,7 +82,8 @@
 </dd>
 </dl>
 <p><tt class="xref download docutils literal"><span class="pre">This</span> <span class="pre">script</span></tt> will allow you to test your code. This is a partial set of the tests that I will run. Passing all 4 of these tests will guarantee you at least a 40% on this homework assignment. After downloading this script to the same directory as your homework assignment you can run the tests as follows:</p>
-<div class="highlight-python"><pre>python test_prog3.py prog3_jgc53.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>python test_prog3.py prog3_jgc53.py
+</pre></div>
 </div>
 <p>(Where my script is named <tt class="docutils literal"><span class="pre">prog3_jgc53.py</span></tt>.)</p>
 </div>
@@ -128,7 +125,8 @@
 </dd>
 </dl>
 <p><tt class="xref download docutils literal"><span class="pre">This</span> <span class="pre">script</span></tt> will allow you to test your code. This is a partial set of the tests that I will run. Passing all 5 of these tests will guarantee you at least a 50% on this homework assignment. After downloading this script to the same directory as your homework assignment you can run the tests as follows:</p>
-<div class="highlight-python"><pre>python test_prog2.py prog2_jgc53.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>python test_prog2.py prog2_jgc53.py
+</pre></div>
 </div>
 <p>(Where my script is named <tt class="docutils literal"><span class="pre">prog2_jgc53.py</span></tt>.)</p>
 </div>
@@ -136,26 +134,31 @@
 <h2>Programming assignment 1 (i.e., Modified exercise 41-44): Extra credit<a class="headerlink" href="#programming-assignment-1-i-e-modified-exercise-41-44-extra-credit" title="Permalink to this headline">¶</a></h2>
 <p>Create a new python file named <tt class="docutils literal"><span class="pre">prog1ec_&lt;userid&gt;.py</span></tt>, where <tt class="docutils literal"><span class="pre">userid</span></tt> is replaced with your NAU user id. For example, mine is called <tt class="docutils literal"><span class="pre">prog1ec_jgc53.py</span></tt>. Name it exactly like this (including case!). You must also define <tt class="docutils literal"><span class="pre">userid=&lt;userid&gt;</span></tt> (again where &lt;userid&gt; is replaced with your NAU user id) in your script so that it can be imported into other code. Any deviations from these instructions <strong>will result in a zero on this assignment</strong>!</p>
 <p>Define a function of the form:</p>
-<div class="highlight-python"><pre>def transcribe(dna)</pre>
+<div class="highlight-python"><div class="highlight"><pre>def transcribe(dna)
+</pre></div>
 </div>
 <p>which simulates transcription of a string passed as <tt class="docutils literal"><span class="pre">dna</span></tt> and returns the resulting sequence as a string.</p>
 <p>Define another function of the form:</p>
-<div class="highlight-python"><pre>def rc(dna)</pre>
+<div class="highlight-python"><div class="highlight"><pre>def rc(dna)
+</pre></div>
 </div>
 <p>which reverse complements a string passed as <tt class="docutils literal"><span class="pre">dna</span></tt> and returns the resulting sequence as a string.</p>
 <p>Your python file should also define a command line interface that allows users to pass a single sequence followed by an operation (<tt class="docutils literal"><span class="pre">t</span></tt> for transcribe or <tt class="docutils literal"><span class="pre">rc</span></tt> for reverse complement). The script should apply the appropriate operation and print the result to the terminal. If the user passes something other than <tt class="docutils literal"><span class="pre">t</span></tt> or <tt class="docutils literal"><span class="pre">rc</span></tt>, for example <tt class="docutils literal"><span class="pre">xyz</span></tt>, the script should print <tt class="docutils literal"><span class="pre">Unknown</span> <span class="pre">operation:</span> <span class="pre">xyz.</span></tt></p>
 <p>You should be able to call your script as follows:</p>
-<div class="highlight-python"><pre>python prog1ec_jgc53.py ACCGT t
-python prog1ec_jgc53.py ACCGT rc</pre>
+<div class="highlight-python"><div class="highlight"><pre>python prog1ec_jgc53.py ACCGT t
+python prog1ec_jgc53.py ACCGT rc
+</pre></div>
 </div>
 <p>Validate your script by downloading <tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">script</span></tt> by saving it to the same directory as your script and running the command:</p>
-<div class="highlight-python"><pre>python test_prog1ec.py prog1ec_jgc53.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>python test_prog1ec.py prog1ec_jgc53.py
+</pre></div>
 </div>
 <p>When your script is working correctly the output should end with:</p>
-<div class="highlight-python"><pre>----------------------------------------------------------------------
+<div class="highlight-python"><div class="highlight"><pre>----------------------------------------------------------------------
 Ran 5 tests in 0.117s
 
-OK</pre>
+OK
+</pre></div>
 </div>
 <p>There are five tests implemented here, and each test is worth one extra credit point toward programming assignment 1. These are the same tests that I will run when you turn your assignment in.</p>
 </div>
@@ -177,16 +180,19 @@ OK</pre>
 </pre></div>
 </div>
 <p>To confirm that your script is formatted correctly, <tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">script</span></tt>. Place this script in the same directory as your homework assignment and run the following command:</p>
-<div class="highlight-python"><pre>validate_assignment_specifications.py &lt;script_name&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>validate_assignment_specifications.py &lt;script_name&gt;
+</pre></div>
 </div>
 <p>Where <tt class="docutils literal"><span class="pre">&lt;script_name&gt;</span></tt> is replaced by the name of your script. For example, my command would look like:</p>
-<div class="highlight-python"><pre>validate_assignment_specifications.py prog1_jgc53.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>validate_assignment_specifications.py prog1_jgc53.py
+</pre></div>
 </div>
 <p>You should get a message that three tests passed. If the message does not end with the following you have not formatted your homework correctly, and you will get a zero on the assignment:</p>
-<div class="highlight-python"><pre>----------------------------------------------------------------------
+<div class="highlight-python"><div class="highlight"><pre>----------------------------------------------------------------------
 Ran 3 tests in 0.007s
 
-OK</pre>
+OK
+</pre></div>
 </div>
 </div>
 <div class="section" id="bio-students">
@@ -268,11 +274,11 @@ OK</pre>
 <p>I recommend that you keep notes in whatever program you&#8217;re comfortable with, provided that when I collect these you&#8217;ll be able to generate a PDF that you can send to me. Some choices might be MS Word, Google Docs, Evernote, Gedit (you&#8217;ll need to print to PDF), etc.</p>
 <p>A few (random) times through-out the semester I&#8217;ll collect your programming notebooks in electronic form. I&#8217;ll review these and score them on completeness.</p>
 <p>Here&#8217;s an example of what your notebook might look like for the first three exercises:</p>
-<div class="highlight-python"><pre>Exercise 0 (31 Aug 2011)
+<div class="highlight-python"><div class="highlight"><pre>Exercise 0 (31 Aug 2011)
 
 Installed Gedit and created a test file. Had to look up how to make and
-change directories on the web. I googled "how to make a directory in the
-Terminal" and found this page: http://guides.macrumors.com/Terminal. This
+change directories on the web. I googled &quot;how to make a directory in the
+Terminal&quot; and found this page: http://guides.macrumors.com/Terminal. This
 pages covers some useful commands for working the in terminal - I found
 mkdir and cd here.
 
@@ -283,7 +289,7 @@ because I used a double-quote to start a string and a single-quote to
 end a string. Easy fix once I figured out the problem.
 
 Extra credits: 1) Just added another print statement; 2) Deleted all of
-the lines except for one; 3) The '#' symbol causes a line not to be
+the lines except for one; 3) The &#39;#&#39; symbol causes a line not to be
 interpreted - if you add this to the line everything after the # is ignored.
 I figured this out by experimenting with putting # signs in my code and
 rerunning it. This would have been a better way to achieve the result of
@@ -293,9 +299,10 @@ Exercise 2 (1 Sept 2011)
 
 No problems with writing or running the code.
 
-Extra credits: 1) Yep, I was right about what the '#' symbol does. 3) Missed a
-space between print and "This will run." on line 9 when re-entering the code. This
-caused a syntax error.</pre>
+Extra credits: 1) Yep, I was right about what the &#39;#&#39; symbol does. 3) Missed a
+space between print and &quot;This will run.&quot; on line 9 when re-entering the code. This
+caused a syntax error.
+</pre></div>
 </div>
 </div>
 </div>
@@ -316,8 +323,8 @@ caused a syntax error.</pre>
 
     <div class="footer">
         &copy; Copyright 2012, J Gregory Caporaso.
-      Last updated on Feb 25, 2014.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Last updated on Feb 27, 2014.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
     </div>
   </body>
 </html>
