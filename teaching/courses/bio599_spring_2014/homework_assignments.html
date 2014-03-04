@@ -53,13 +53,12 @@
 </div>
 <div class="section" id="programming-assignment-2-1-apr-2014-20-points">
 <h2>Programming Assignment 2 (1 Apr 2014) (20 points)<a class="headerlink" href="#programming-assignment-2-1-apr-2014-20-points" title="Permalink to this headline">¶</a></h2>
-<p><strong>HOLD OFF ON GETTING STARTED ON THIS:</strong> I am still working on it a little bit.</p>
 <p>You will write a program that extracts latitude and longitude information from a <a class="reference external" href="http://qiime.org/documentation/file_formats.html#metadata-mapping-files">QIIME-compatible mapping file</a>, and writes that to a <a class="reference external" href="https://developers.google.com/kml/documentation/kml_tut">Keyhole Markup Language (kml) file</a>, which can be opened in <a class="reference external" href="http://www.google.com/earth/index.html">Google Earth</a>. To achieve this you&#8217;ll need to understand the QIIME mapping file format so you can parse it, the <tt class="docutils literal"><span class="pre">kml</span></tt> file format so you can write it, and the basics of file reading and writing in python so you can read the mapping file, process the input, and write the kml file.</p>
 <p>Your script should take two command line arguments: the input mapping file, and the name of the output file to write. For example, I would call my script as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre>jgc53_coordinates.py glen_canyon_map.tsv jgc53_coordinates.kml
 </pre></div>
 </div>
-<p>You can obtain the mapping file from <a class="reference external" href="https://docs.google.com/spreadsheet/ccc?key=0AvglGXLayhG7dDNCWnUwSHhWNmxKODZISWx6VzBqU0E">here</a> (choose &#8216;File &gt; Download as &gt; Plain text&#8217; to save as tab-separated text). You can see an example of what the output file should look like <a class="reference external" href="https://gist.github.com/4121975">here</a>.</p>
+<p>You can obtain the mapping file from <a class="reference external" href="https://docs.google.com/spreadsheet/ccc?key=0AvglGXLayhG7dDNCWnUwSHhWNmxKODZISWx6VzBqU0E">here</a> (choose &#8216;File &gt; Download as &gt; Tab-separated values&#8217; to save as tab-separated text). You can see an example of what the output file should look like <a class="reference external" href="https://gist.github.com/4121975">here</a>.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Homework id: <tt class="docutils literal"><span class="pre">coordinates</span></tt>; Extension: <tt class="docutils literal"><span class="pre">py</span></tt> and <tt class="docutils literal"><span class="pre">kml</span></tt>; For this assignment, the files I turn in would be named <tt class="docutils literal"><span class="pre">jgc53_coordinates.py</span></tt> and <tt class="docutils literal"><span class="pre">jgc53_coordinates.kml</span></tt>.</p>
