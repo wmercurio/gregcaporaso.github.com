@@ -1,17 +1,32 @@
+
 ---
 layout: bio
 datatype: bio
 
 title: "Dan Domogala"
 picture: "dan-domogala/profile.png"
-abstract: "I am studying the fish microbiome and I am focusing on large heterotrophic bacteria. Part of my project aims to analyze the effects of circadian shifts that occur in the fish microbiome community. Ribosomal 16s RNA sequences, clade members of the giant bacteria of interest have been recorded in surgeonfish and appear to be mainly restricted to these fish taxa. The geographic distribution of these fish seem to be from the Red Sea, Australia, the North and South Pacific Islands, and in butterfish from New Zealand.
- The large bacteria are restricted to the phylum Firmicutes, and is most closely related to Clostridium spp. and Metabacterium polyspora.
- I am hoping to further analyze the microbial ecology of the fish microbiome and how it relates to the presence of Epulopiscium spp. One major tool in my work will be using QIIME along with high throughput sequencing for an efficient and informative bioinformatics pipeline. "
+abstract: "I am a graduate student pursuing my master's in biology at Northern Arizona University.
+ My project aims to understand the structure and function of the microbiome in the gut of surgeonfish species. Members of the surgeonfish microbiome we are studying include “epulos” species, which are among the largest Eubacteria.
+ The surgeonfish microbiome, unlike the human microbiome has not been effected by antibiotic treatments, dietary practices, pollutants, or high density populations. In order to analyze the community structure 
+ of the surgeonfish microbiome I will be using high throughput sequencing and downstream analysis using QIIME version 1.7.0.
+  
+ Questions that we intend to address:
+
+  + Will there be any degree of variability between the stomach, intestine, and across the length of the intestine, despite interspecific differences in the microbial composition?
+  + What are the identities and functions of inhabitants in the fish gut microbiome, and are changes due to circadian shifts consistent and predictable? 
+  + Are patterns observed in the data consistent across host taxon, geographic distribution, difference in food source, or presence/absence of epulos?
+
+
+ The project outcome hopes to provide information about evolutionary relationships and their functions in the fish gut microbiome."  
+
+
+
+*email*
+ddd38@nau.edu
+
+
 ---
 
-This is markdown:
-=================
 
- * list item
- * list item
- * list item
+
+
