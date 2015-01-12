@@ -16,9 +16,9 @@ Find information on in-class exercises `here <./in_class_assignments.html>`_.
 Course materials
 ================
 
-All of my lecture notes are publicly accessible, either through `SpeakerDeck <https://speakerdeck.com/gregcaporaso>`_ (for slides), `Gist <https://gist.github.com/gregcaporaso>`_ (for IPython Notebooks, python scripts, data sets, etc), or ``An Introduction to Applied Bioinformatics <http://www.applied-bioinformatics.org>`_. See the ``Lecture slides`` and ``Primary reading`` columns in the `course schedule <https://docs.google.com/spreadsheet/pub?key=0AvglGXLayhG7dFp5MnBqNFZwekp4bUo5VU5HRzNEc2c&output=html>`_ to find links to the materials for a lecture.
+All of my lecture notes are publicly accessible, either through `SpeakerDeck <https://speakerdeck.com/gregcaporaso>`_ (for slides), `Gist <https://gist.github.com/gregcaporaso>`_ (for IPython Notebooks, python scripts, data sets, etc), or `An Introduction to Applied Bioinformatics <http://www.applied-bioinformatics.org>`_. See the ``Lecture slides`` and ``Primary reading`` columns in the `course schedule <https://docs.google.com/spreadsheet/pub?key=0AvglGXLayhG7dFp5MnBqNFZwekp4bUo5VU5HRzNEc2c&output=html>`_ to find links to the materials for a lecture.
 
-The text book for this class is ``An Introduction to Applied Bioinformatics <http://www.applied-bioinformatics.org>`_. This is a free, online book. Currently there is no paper copy available.
+The text book for this class is `An Introduction to Applied Bioinformatics <http://www.applied-bioinformatics.org>`_. This is a free, online book. Currently there is no paper copy available.
 
 Find the `course syllabus here <https://drive.google.com/file/d/0B_glGXLayhG7dnM3YmVfX2tDWTg/edit?usp=sharing>`_.
 
