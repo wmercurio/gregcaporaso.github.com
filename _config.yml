@@ -7,13 +7,16 @@ logo:             site-logo.png
 
 people: 
   - Greg Caporaso
-  - Katy Califf
-  - Crystal Hepp
-  - Karen Schwarzberg
-  - John Chase
-  - Dan Domogala
+  # Reverse alphabetical from here.
   - Bo Maxwell Stevens
+  - Arron Shiffer
+  - Karen Schwarzberg
   - Jai Ram Rideout
+  - Crystal Hepp
+  - Kestrel Gorlick
+  - Dan Domogala
+  - John Chase
+  - Katy Califf
   - Evan Bolyen
 
 projects:
