@@ -2,8 +2,8 @@
 layout: bio
 datatype: bio
 
-title: "Evan Bolyen"
-picture: "evan-bolyen/profile.png"
+title: Evan Bolyen
+picture: evan-bolyen/profile.png
 abstract: >
     I am an undergraduate student at NAU with a major in Computer Science and a
     minor in Biology. I work as a software engineer, helping to develop and
@@ -22,7 +22,7 @@ abstract: >
     new artifact.
 
 ### Career Goals:
-My dream job is to work in synthetic biology, programming novel life. 
+My dream job is to work in synthetic biology, programming novel life.
 Unfortunately, that is not yet an employable field, living firmly in the world
 of science fiction (for now...).
 

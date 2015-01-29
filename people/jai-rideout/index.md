@@ -3,7 +3,7 @@ layout: bio
 datatype: bio
 
 title: Jai Ram Rideout
-picture: "jai-rideout/profile.jpg"
+picture: jai-rideout/profile.jpg
 abstract: >
   My name is Jai Ram Rideout (canonically pronounced "jay rom ride-out"). I am a
   research software engineer focused on the development of open source
