@@ -23,36 +23,39 @@ To add your profile make sure terminal is open and navigate to the `people/` dir
 
 You should now have 2 files, one named `index.md` and one names `profile.png`. Open `index.md` in your favorite editor.
 
-The file should look like this: 
+The file should look like this:
 
      ---
      layout: bio
      datatype: bio
-     
+
      title: Demo User
-     picture: "demo-user/profile.png" 
+     picture: "demo-user/profile.png"
      abstract: "Hello this is my abstract."
      ---
-     
-     
+
+
      This is my space to put whatever I want.
- 
+
 1. Change the `title` from "Demo User" to your full name.
 2. Change the `picture` path from "demo-user/profile.png" to "firstname-lastname/profile.png" it should match your folder.
 3. Change the `abstract` to a short description of yourself.
-4. Any space below the `---` will be rendered as [markdown](http://en.wikipedia.org/wiki/Markdown). 
+4. Any space below the `---` will be rendered as [markdown](http://en.wikipedia.org/wiki/Markdown).
 
-Save your changes. 
+Save your changes.
 
 Additionally find a profile picture and place it in your folder. You can rename it to be `profile.png` or you can open `index.md` and change the name of the picture in `picture`.
+
+Finally if you are creating a new person or project page. Make sure to add the `title` property of your new page to the `_config.yml` file at the root of the repo. **If your new page does not have an entry in the `_config.yml`, it will not show up!**
 
 Using Git and github:
 =====================
 
-Navigate to your profile directory in terminal and type `git add *` this will tell Git to track every file and subfolder in the directory. 
-Now that Git is tracking your new files we can add them as a commit. A commit acts as a snapshot of the entire project. It's job is to keep track of every change made between itself and the last commit. 
+Navigate to your profile directory in the terminal and type `git status -s` you should see a list of new files with `??` in front of each new one. Make sure this list contains your file(s), then type `git add <path-to-file>`. Do this for each file you want to add. 
+
+Now that Git is tracking your new files we can add them as a commit. A commit acts as a snapshot of the entire project. It's job is to keep track of every change made between itself and the last commit.
 To add a new commit type: `git commit --all -m "<type a brief description of your commit here>"` and press enter.
-Your current project state should now be stored as a commit. 
+Your current project state should now be stored as a commit.
 
 Next you will want to synchronize your local repository (your current location) with your github repository. To do this type: `git push origin master`. This tells Git that you want to upload your current string of commits to a remote location which by default is named `origin` furthermore, you are uploading the `master` branch which is the default branch on which your commits live.
 Type in your github username and password.
@@ -62,6 +65,6 @@ Now your github repository matches your local repository. You will need to commi
 In github, on the side, select "Pull Requests". Then in the top right corner hit the green button that says "New Pull Request". This will take you to a page which shows an overview of the commits and the branches you are requesting a merge for. You generally don't need to worry about this. Just hit "Click to create a pull request for this comparison".
 You are free to give the request a title and description, but for the purposes of this website, it is largely unnecessary, proceed by clicking the green "Send Pull Request" button.
 
-Now it will be my (Evan) job to merge your pull request. Once I have done so you will be able to see your changes at:
+Once this pull request is merged, you will see the changes at:
 
 http://caporaso.us
