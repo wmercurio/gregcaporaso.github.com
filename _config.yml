@@ -1,24 +1,29 @@
 title:            Caporaso Lab
-description:     Coparso Lab Site 
+description:     Caporaso Lab Site
 logo:             site-logo.png
 #Comment out url when working locally to resolve base urls correctly
 #url:              "http://ebolyen.github.io"
 
 
-people: 
+people:
   - Greg Caporaso
+  # Reverse alphabetical from here.
+  - Bo Maxwell Stevens
+  - Arron Shiffer
+  - Karen Schwarzberg
+  - Jai Ram Rideout
+  - Crystal Hepp
+  - Kestrel Gorlick
+  - Dan Domogala
   - John Chase
   - Katy Califf
-  - Crystal Hepp
-  - Bo Maxwell Stevens
-  - Dan Domogala
-  - Jai Ram Rideout
   - Evan Bolyen
 
 projects:
   - Office Succession
   - Student Microbiome
   - Flagstaff Microbiome
+  - Fecal Microbiota Transplants in Children with Autism Spectrum Disorders
 
 # Owner/author information
 owner:
@@ -63,7 +68,7 @@ kramdown:
   use_coderay: false
 
   coderay:
-    coderay_line_numbers: 
+    coderay_line_numbers:
     coderay_line_numbers_start: 1
     coderay_tab_width: 4
     coderay_bold_every: 10

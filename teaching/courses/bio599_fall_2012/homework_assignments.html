@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,7 +10,6 @@
     
     <link rel="stylesheet" href="../../static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../static/print.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -26,7 +23,6 @@
     <script type="text/javascript" src="../../static/jquery.js"></script>
     <script type="text/javascript" src="../../static/underscore.js"></script>
     <script type="text/javascript" src="../../static/doctools.js"></script>
-    <script type="text/javascript" src="../../static/theme_extras.js"></script>
     <link rel="top" title="bioinformatics@nau" href="../../index.html" /> 
   </head>
   <body>
@@ -58,18 +54,21 @@
 <div class="section" id="turning-in-your-homework-via-the-cluster">
 <h2>Turning in your homework via the cluster<a class="headerlink" href="#turning-in-your-homework-via-the-cluster" title="Permalink to this headline">¶</a></h2>
 <p>You can also turn in your programming assignments by placing them in a specific location on the cluster. If your assignment file is called <tt class="docutils literal"><span class="pre">jgc53_translate.py</span></tt> you could do this as follows:</p>
-<div class="highlight-python"><pre>chmod o-rwx jgc53_translate.py
-cp jgc53_translate.py /mnt/assignments/translate/</pre>
+<div class="highlight-python"><div class="highlight"><pre>chmod o-rwx jgc53_translate.py
+cp jgc53_translate.py /mnt/assignments/translate/
+</pre></div>
 </div>
 <p>Note that the directory that you&#8217;re turning your files in to will always be <tt class="docutils literal"><span class="pre">/mnt/assignments/&lt;homework_id&gt;/</span></tt>, where <tt class="docutils literal"><span class="pre">&lt;homework_id&gt;</span></tt> is replaced with the current <tt class="docutils literal"><span class="pre">homework_id</span></tt>. You should <tt class="docutils literal"><span class="pre">cp</span></tt>, not <tt class="docutils literal"><span class="pre">mv</span></tt>, the file so you retain a backup of it (and on that note, also remember to copy the file to your local hard drive as a backup).</p>
 </div>
 <div class="section" id="accessing-the-cluster">
 <h2>Accessing the cluster<a class="headerlink" href="#accessing-the-cluster" title="Permalink to this headline">¶</a></h2>
 <p>For the remaining assignments this semester we&#8217;ll use an Amazon Cloud based cluster. You should have received a key file (<tt class="docutils literal"><span class="pre">&lt;nau-id&gt;.rsa</span></tt>) and ip address by email. (I won&#8217;t post the ip address here for security reasons.) Use the key file and the ip address to connect as follows:</p>
-<div class="highlight-python"><pre>ssh -i &lt;key-file&gt; &lt;nau-id&gt;@&lt;ip-address&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>ssh -i &lt;key-file&gt; &lt;nau-id&gt;@&lt;ip-address&gt;
+</pre></div>
 </div>
 <p>For example, I would connect as follows:</p>
-<div class="highlight-python"><pre>ssh -i jgc53.rsa jgc53@&lt;ip-address&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>ssh -i jgc53.rsa jgc53@&lt;ip-address&gt;
+</pre></div>
 </div>
 <p>Where <tt class="docutils literal"><span class="pre">&lt;ip-address&gt;</span></tt> is replaced with the IP address that was provided by email.</p>
 <p>To move files in and out of the instance, I recommend using <a class="reference external" href="http://www.cyberduck.ch">Cyberduck</a>. You can find <a class="reference external" href="http://qiime.org/tutorials/working_with_aws.html#working-with-cyberduck">instructions for connecting to AWS with Cyberduck here</a>. Instead of the public DNS entry, you&#8217;ll use the IP address referenced above. You can also experiment with <a class="reference external" href="http://qiime.org/tutorials/working_with_aws.html#working-with-command-line-tools">command line tools to move data in and out of the cluster</a>.</p>
@@ -168,7 +167,8 @@ cp jgc53_translate.py /mnt/assignments/translate/</pre>
 <h2>Programming Assignment 3 (4 Dec 2012)<a class="headerlink" href="#programming-assignment-3-4-dec-2012" title="Permalink to this headline">¶</a></h2>
 <p>You will write a program that extracts latitude and longitude information from a <a class="reference external" href="http://qiime.org/documentation/file_formats.html#metadata-mapping-files">QIIME-compatible mapping file</a>, and writes that to a <a class="reference external" href="https://developers.google.com/kml/documentation/kml_tut">Keyhole Markup Language (kml) file</a>, which can be opened in <a class="reference external" href="http://www.google.com/earth/index.html">Google Earth</a>. To achieve this you&#8217;ll need to understand the QIIME mapping file format so you can parse it, the <tt class="docutils literal"><span class="pre">kml</span></tt> file format so you can write it, and the basics of file reading and writing in python so you can read the mapping file, process the input, and write the kml file.</p>
 <p>Your script should take two command line arguments: the input mapping file, and the name of the output file to write. For example, I would call my script as follows:</p>
-<div class="highlight-python"><pre>jgc53_coordinates.py glen_canyon_map.tsv jgc53_coordinates.kml</pre>
+<div class="highlight-python"><div class="highlight"><pre>jgc53_coordinates.py glen_canyon_map.tsv jgc53_coordinates.kml
+</pre></div>
 </div>
 <p>You can obtain the mapping file from <a class="reference external" href="https://docs.google.com/spreadsheet/ccc?key=0AvglGXLayhG7dDNCWnUwSHhWNmxKODZISWx6VzBqU0E">here</a> (choose &#8216;File &gt; Download as &gt; Plain text&#8217; to save as tab-separated text). You can see an example of what the output file should look like <a class="reference external" href="https://gist.github.com/4121975">here</a>.</p>
 <div class="admonition important">
@@ -199,18 +199,20 @@ cp jgc53_translate.py /mnt/assignments/translate/</pre>
 </pre></div>
 </div>
 <p>Example input 1:</p>
-<div class="highlight-python"><pre>Enter a DNA sequence:
-ACCGGGTTACCC</pre>
+<div class="highlight-python"><div class="highlight"><pre>Enter a DNA sequence:
+ACCGGGTTACCC
+</pre></div>
 </div>
 <p>Example output 1:</p>
-<div class="highlight-python"><pre>Forward orientation:
+<div class="highlight-python"><div class="highlight"><pre>Forward orientation:
 TGLP
 Reverse orientation:
 PIGP
 Forward complement orientation:
 WPNG
 Reverse complement orientation:
-G*PG</pre>
+G*PG
+</pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -271,7 +273,7 @@ G*PG</pre>
 </dd>
 </dl>
 <p>The following commands will get you started. Run these after logging in to your cluster account.</p>
-<div class="highlight-python"><pre># CHANGE TO YOUR SCRATCH DIRECTORY (remember &lt;nau-id&gt; should be replaced by your NAU identifier)!!!
+<div class="highlight-python"><div class="highlight"><pre># CHANGE TO YOUR SCRATCH DIRECTORY (remember &lt;nau-id&gt; should be replaced by your NAU identifier)!!!
 cd /mnt/&lt;nau-id&gt;
 
 # download the Fierer data
@@ -282,7 +284,8 @@ tar -xvzf fierer_forensic_keyboard_assignment.tgz
 cd fierer_forensic_keyboard_assignment
 
 # generate .fna and .qual files from the sff file
-process_sff.py -i ./</pre>
+process_sff.py -i ./
+</pre></div>
 </div>
 <p>The steps in the <a class="reference external" href="http://qiime.org/svn_documentation/tutorials/tutorial.html">QIIME Overview Tutorial</a> are the next place to go from here... Good luck!</p>
 <div class="admonition important">
@@ -371,8 +374,8 @@ process_sff.py -i ./</pre>
 
     <div class="footer">
         &copy; Copyright 2012, J Gregory Caporaso.
-      Last updated on Feb 04, 2014.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Last updated on Feb 17, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>
