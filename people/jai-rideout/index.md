@@ -3,23 +3,25 @@ layout: bio
 datatype: bio
 
 title: Jai Ram Rideout
-picture: "jai-rideout/profile.jpg"
-abstract: 'My name is Jai Ram Rideout (canonically pronounced "jay rom ride-out"). I am a bioinformatician working on various microbiome-related projects, including development of the QIIME software package.'
+picture: jai-rideout/profile.jpg
+abstract: >
+  My name is Jai Ram Rideout (canonically pronounced "jay rom ride-out"). I am a
+  research software engineer focused on the development of open source
+  bioinformatics tools.
 ---
+
+<a href="https://twitter.com/jairideout" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @jairideout</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+**GitHub:** [@jairideout](https://github.com/jairideout)
 
 # What I do
 
-I'm usually involved in microbial ecology-related projects, including
-developing software, performing analyses, writing manuscripts, and teaching
-QIIME/microbial ecology workshops. I'm an active GitHub user; to see what I'm
-up to, check out my profile: [@jrrideout](https://github.com/jrrideout).
-
-Here's a few of the projects that I've been most recently involved in:
-
-- [QIIME](http://www.qiime.org)
-- [BIOM format](http://biom-format.org)
-- [pyqi](http://bipy.github.io/pyqi)
-- [My Microbes](http://my-microbes.qiime.org)
+I'm primarily involved in the development of open source bioinformatics tools,
+including [scikit-bio](http://scikit-bio.org) and [QIIME](http://qiime.org).
+I'm an active GitHub user; to see what I'm up to, check out my profile:
+[@jairideout](https://github.com/jairideout). I also perform data analysis,
+write manuscripts, and teach QIIME/microbial ecology workshops.
 
 # What I'm interested in
 
@@ -33,17 +35,19 @@ believe that there is a strong need for the application of software engineering
 maintainers sane, as well as to keep science and awesome research pushing
 forward.
 
-To this end, I'm interested in the application of techniques related to
+I am interested in applying these software engineering "best practices" to
+real-world, nontrivial bioinformatics projects. By embracing techniques such as
 automated testing, continuous integration, test-driven development, the code
-review process, and release management *in order to make people's lives
-easier*. I am also interested in thinking about ways of making our software
-more accessible to users; how to take something that is very complex and
-present it in such a way that it is intuitive, easy to use, and fun!
+review process, and release management, I hope to **make people's lives
+easier** and **reduce technical debt**.
 
-I'm also interested in addressing scalability issues within bioinformatics and
-microbial ecology. Since the field is growing so rapidly and the amount of data
-that programs have to deal with only continues to increase, many techniques and
-tools quickly become obsolete or no longer scale to handle the size of modern
-datasets. I'm interested in tackling these types of problems so that
-researchers can continue to analyze their data in a timely fashion, and so that
-bioinformatics can keep up with the deluge of incoming data.
+I am also passionate about designing bioinformatics library APIs that are
+clean, simple, intuitive, and extremely well-documented.
+
+I am able to realize both of these interests through
+[scikit-bio](http://scikit-bio.org). I'm extremely excited about this project
+because we have been able to build the library from the ground up using these
+software engineering "best practices." We have also focused on designing a
+simple (but powerful!) API for researchers and data analysts who may not
+necessarily have a strong technical background. I hope that scikit-bio will set
+a precedent for the development of future bioinformatics software.

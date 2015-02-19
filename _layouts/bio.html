@@ -14,13 +14,13 @@
 
 <div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
   <article class="hentry" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogpost">
-    
+
     <div class="entry-wrapper">
       <header class="entry-header">
         <h1 class="entry-title" itemprop="headline">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}</h1>{% endif %}
       </header>
       <div class="entry-content">
-      <div class="abstract"><img class="abstract-image" src="../{{page.picture}}" /><div class="abstract-content">{{ page.abstract }}</div> </div>
+      <div class="abstract">{% if page.picture %}<img class="abstract-image" src="../{{page.picture}}" />{% endif %}<div class="abstract-content">{{ page.abstract }}</div> </div>
         {{ content }}
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
@@ -33,7 +33,7 @@
   </footer>
 </div><!-- /.footer-wrapper -->
 
-{% include scripts.html %}          
+{% include scripts.html %}
 
 </body>
 </html>
