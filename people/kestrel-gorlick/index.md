@@ -4,7 +4,7 @@ datatype: bio
 
 title: Kestrel Gorlick
 picture: "kestrel-gorlick/profile.png" 
-abstract: "I am a high school student at BASIS Flagstaff. My scholastic interests are focused mainly on computer science and general programming. Currently I am undertaking an independent study in the Caporaso Lab with an emphasis on [scikit-bio](http://www.scikit-bio.org)."
+abstract: "I am a high school student at BASIS Flagstaff. My scholastic interests are focused mainly on computer science and general programming. I've programmed in Python for 3 years, and plan to learn Java and take the AP Computer Science AB next year. I plan on enrolling at NAU and majoring in computer science to get my bachelors degree. Hopefully after that, I will be able to enroll at MIT for my masters. Currently I am undertaking an independent study in the Caporaso Lab with an emphasis on [scikit-bio](http://www.scikit-bio.org)."
 ---
 
 <a href="https://twitter.com/KLEPTOBlSMOL" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @KLEPTOBlSMOL</a>
