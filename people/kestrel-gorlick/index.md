@@ -4,11 +4,13 @@ datatype: bio
 
 title: Kestrel Gorlick
 picture: "kestrel-gorlick/profile.png" 
-abstract: "My name is Kestrel Gorlick (canonically pronounced "kes-trul gore-lik"). I am a high school student, currently undertaking an independent study in the Caporaso Lab with an emphasis on [scikit-bio](http://www.scikit-bio.org)."
+abstract: "My name is Kestrel Gorlick (canonically pronounced "kes-trul gore-lik"). I am a high school student, currently undertaking an independent study in the Caporaso Lab with an emphasis on <a href='http://www.scikit-bio.org' target='_blank'>scikit-bio</a>."
 ---
 
 <a href="https://twitter.com/KLEPTOBlSMOL" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @KLEPTOBlSMOL</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+**GitHub:** [@Kleptobismol](https://github.com/Kleptobismol)
 
 #A Little About Me
 
@@ -16,5 +18,4 @@ I am a Junior at BASIS Flagstaff. My scholastic interests are focused mainly on 
 
 
 
-**GitHub:** [@Kleptobismol](https://github.com/Kleptobismol)
 

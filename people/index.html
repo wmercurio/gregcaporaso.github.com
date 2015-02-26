@@ -14,8 +14,6 @@ title: People
 				</div>
 			</div>
 		<div {% cycle 'pictures': 'class="profileRight"','class="profileLeft"' %} >
-			<img src="{{page.picture}}" />
+			{% if page.picture %}<img src="{{page.picture}}" />{% endif %}
 		</div>
 	</div>{% endif %}{% endif %}{% endfor %}{% endfor %}
-
- 
