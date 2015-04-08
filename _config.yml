@@ -1,8 +1,6 @@
 title:            Caporaso Lab
 description:     Caporaso Lab Site
 logo:             site-logo.png
-#Comment out url when working locally to resolve base urls correctly
-#url:              "http://ebolyen.github.io"
 
 
 people:
@@ -12,6 +10,7 @@ people:
   - Arron Shiffer
   - Karen Schwarzberg
   - Jai Ram Rideout
+  - Anders Pitman
   - Crystal Hepp
   - Kestrel Gorlick
   - Dan Domogala
@@ -22,7 +21,7 @@ people:
 projects:
   - Office Succession
   - Student Microbiome
-  - Flagstaff Microbiome
+  - Temporal dynamics of the human microbiome
   - Fecal Microbiota Transplants in Children with Autism Spectrum Disorders
 
 # Owner/author information
