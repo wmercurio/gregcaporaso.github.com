@@ -4,7 +4,8 @@ datatype: bio
 
 title: William Mercurio
 picture: william-mercurio/profile.png
-abstract: "I am an undergraduate student in Dr. Caporaso's lab. I am currently working on some benchmarking studies looking at four different multiple sequence aligners with "Lane Mask" vs entropy based positional alignment filtering."
+abstract: >
+  I am an undergraduate student in Dr. Caporaso's lab. I am currently working on some benchmarking studies looking at four different multiple sequence aligners with "Lane Mask" vs entropy based positional alignment filtering.
 ---
 
 
